@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 
 @ExtendWith({SnapshotExtension.class})
-class GBFS2to3MapperTest {
+class GBFSMapperTest {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     private Expect expect;
@@ -23,7 +23,7 @@ class GBFS2to3MapperTest {
     void testMapDiscoveryFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/gbfs.json");
         GBFS testSubject = objectMapper.readValue(resource, GBFS.class);
-        GBFSGbfs mapped = GBFS2to3Mapper.INSTANCE.mapDiscovery(testSubject, "en");
+        GBFSGbfs mapped = GBFSMapper.INSTANCE.mapDiscovery(testSubject, "en");
         expect
             .serializer("json")
             .toMatchSnapshot(mapped);

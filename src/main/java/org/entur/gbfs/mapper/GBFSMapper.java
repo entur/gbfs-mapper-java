@@ -12,12 +12,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Mapper
-public interface GBFS2to3Mapper {
-    GBFS2to3Mapper INSTANCE = Mappers.getMapper( GBFS2to3Mapper.class );
+public interface GBFSMapper {
+    GBFSMapper INSTANCE = Mappers.getMapper( GBFSMapper.class );
 
     @Mapping(target = "version", constant = "3.0-RC")
     @Mapping(target = "data", source = "feedsData")
-    org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs mapDiscovery(org.entur.gbfs.v2_3.gbfs.GBFS gbfs, @Context String language);
+    org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs mapDiscovery(org.entur.gbfs.v2_3.gbfs.GBFS source, @Context String sourceLanguage);
 
     default org.entur.gbfs.v3_0_RC.gbfs.GBFSData mapDiscoveryFeedsData(Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> source, @Context String sourceLanguage) {
         List<org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed> mappedFeeds = source.get(sourceLanguage).getFeeds().stream()
