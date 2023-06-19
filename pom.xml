@@ -9,12 +9,17 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <gbfs-java-model.version>3.0.1-SNAPSHOT</gbfs-java-model.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+
+        <junit-jupiter.version>5.9.2</junit-jupiter.version>
+        <java-snapshot-testing.version>4.0.6</java-snapshot-testing.version>
+        <jackson.version>2.11.3</jackson.version>
+        <slf4j-simple.version>2.0.5</slf4j-simple.version>
     </properties>
 
     <dependencies>
@@ -32,39 +37,42 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.9.2</version>
+            <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>io.github.origin-energy</groupId>
             <artifactId>java-snapshot-testing-junit5</artifactId>
-            <version>4.0.6</version>
+            <version>${java-snapshot-testing.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>io.github.origin-energy</groupId>
             <artifactId>java-snapshot-testing-plugin-jackson</artifactId>
-            <version>4.0.6</version>
+            <version>${java-snapshot-testing.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.11.3</version>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.11.3</version>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>2.0.0-alpha0</version>
+            <version>${slf4j-simple.version}</version>
             <scope>test</scope>
         </dependency>
 
