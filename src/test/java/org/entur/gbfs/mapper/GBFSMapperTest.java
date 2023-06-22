@@ -23,7 +23,7 @@ class GBFSMapperTest {
     public void testMapDiscoveryFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/gbfs.json");
         GBFS testSubject = objectMapper.readValue(resource, GBFS.class);
-        GBFSGbfs mapped = GBFSMapper.INSTANCE.mapDiscovery(testSubject, "en");
+        GBFSGbfs mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         expect
             .serializer("json")
             .toMatchSnapshot(mapped);

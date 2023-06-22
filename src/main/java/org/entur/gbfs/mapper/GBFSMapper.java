@@ -1,5 +1,6 @@
 package org.entur.gbfs.mapper;
 
+import org.entur.gbfs.mapper.util.MapperUtil;
 import org.entur.gbfs.v2_3.gbfs.GBFSFeedName;
 import org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed;
 import org.mapstruct.Context;
@@ -14,35 +15,19 @@ import java.util.stream.Collectors;
 @Mapper
 public interface GBFSMapper {
     GBFSMapper INSTANCE = Mappers.getMapper( GBFSMapper.class );
-
+    
     @Mapping(target = "version", constant = "3.0-RC")
     @Mapping(target = "data", source = "feedsData")
-    org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs mapDiscovery(org.entur.gbfs.v2_3.gbfs.GBFS source, @Context String sourceLanguage);
+    org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs map(org.entur.gbfs.v2_3.gbfs.GBFS source, @Context String sourceLanguage);
 
-    default org.entur.gbfs.v3_0_RC.gbfs.GBFSData mapDiscoveryFeedsData(Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> source, @Context String sourceLanguage) {
+    default org.entur.gbfs.v3_0_RC.gbfs.GBFSData map(Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> source, @Context String sourceLanguage) {
         List<org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed> mappedFeeds = source.get(sourceLanguage).getFeeds().stream()
-                    .filter(this::filterSourceFeeds)
-                    .map(this::mapSourceFeed).collect(Collectors.toList());
+                    .filter(MapperUtil::filterSourceFeeds)
+                    .map(MapperUtil::mapSourceFeed).collect(Collectors.toList());
 
         return new org.entur.gbfs.v3_0_RC.gbfs.GBFSData()
                 .withFeeds(mappedFeeds);
     }
 
-    private boolean filterSourceFeeds(org.entur.gbfs.v2_3.gbfs.GBFSFeed sourceFeed) {
-        return !List.of(
-                GBFSFeedName.SystemHours,
-                GBFSFeedName.SystemCalendar
-        ).contains(sourceFeed.getName());
-    }
 
-    private org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed mapSourceFeed(org.entur.gbfs.v2_3.gbfs.GBFSFeed sourceFeed) {
-        org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed targetFeed = new org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed();
-        if (sourceFeed.getName().equals(GBFSFeedName.FreeBikeStatus)) {
-            targetFeed.setName(GBFSFeed.Name.VEHICLE_STATUS);
-        } else {
-            targetFeed.setName(org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed.Name.fromValue(sourceFeed.getName().value()));
-        }
-        targetFeed.setUrl(sourceFeed.getUrl().toString());
-        return targetFeed;
-    }
 }
