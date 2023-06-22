@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Mapper
 public interface GBFSMapper {
     GBFSMapper INSTANCE = Mappers.getMapper( GBFSMapper.class );
-    
+
     @Mapping(target = "version", constant = "3.0-RC")
     @Mapping(target = "data", source = "feedsData")
     org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs map(org.entur.gbfs.v2_3.gbfs.GBFS source, @Context String sourceLanguage);
@@ -30,4 +30,18 @@ public interface GBFSMapper {
     }
 
 
+    @Mapping(target = "version", constant = "2.3")
+    @Mapping(target = "feedsData", source = "data")
+    @Mapping(target = "data", ignore = true)
+    org.entur.gbfs.v2_3.gbfs.GBFS map(org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs source, @Context String sourceLanguage);
+
+    default Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> map(org.entur.gbfs.v3_0_RC.gbfs.GBFSData source, @Context String sourceLanguage) {
+        org.entur.gbfs.v2_3.gbfs.GBFSFeeds mappedFeeds = new org.entur.gbfs.v2_3.gbfs.GBFSFeeds();
+        mappedFeeds.setFeeds(source.getFeeds().stream().map(MapperUtil::mapSourceFeed).collect(Collectors.toList()));
+
+        return Map.of(
+                sourceLanguage,
+                mappedFeeds
+        );
+    }
 }
