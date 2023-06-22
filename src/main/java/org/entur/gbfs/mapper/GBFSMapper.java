@@ -1,8 +1,6 @@
 package org.entur.gbfs.mapper;
 
 import org.entur.gbfs.mapper.util.MapperUtil;
-import org.entur.gbfs.v2_3.gbfs.GBFSFeedName;
-import org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,8 +20,8 @@ public interface GBFSMapper {
 
     default org.entur.gbfs.v3_0_RC.gbfs.GBFSData map(Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> source, @Context String sourceLanguage) {
         List<org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed> mappedFeeds = source.get(sourceLanguage).getFeeds().stream()
-                    .filter(MapperUtil::filterSourceFeeds)
-                    .map(MapperUtil::mapSourceFeed).collect(Collectors.toList());
+                    .filter(MapperUtil::filterLegacySourceFeeds)
+                    .map(MapperUtil::map).collect(Collectors.toList());
 
         return new org.entur.gbfs.v3_0_RC.gbfs.GBFSData()
                 .withFeeds(mappedFeeds);
@@ -33,14 +31,14 @@ public interface GBFSMapper {
     @Mapping(target = "version", constant = "2.3")
     @Mapping(target = "feedsData", source = "data")
     @Mapping(target = "data", ignore = true)
-    org.entur.gbfs.v2_3.gbfs.GBFS map(org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs source, @Context String sourceLanguage);
+    org.entur.gbfs.v2_3.gbfs.GBFS map(org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs source, @Context String targetLanguage);
 
-    default Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> map(org.entur.gbfs.v3_0_RC.gbfs.GBFSData source, @Context String sourceLanguage) {
+    default Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> map(org.entur.gbfs.v3_0_RC.gbfs.GBFSData source, @Context String targetLanguage) {
         org.entur.gbfs.v2_3.gbfs.GBFSFeeds mappedFeeds = new org.entur.gbfs.v2_3.gbfs.GBFSFeeds();
-        mappedFeeds.setFeeds(source.getFeeds().stream().map(MapperUtil::mapSourceFeed).collect(Collectors.toList()));
+        mappedFeeds.setFeeds(source.getFeeds().stream().map(MapperUtil::map).collect(Collectors.toList()));
 
         return Map.of(
-                sourceLanguage,
+                targetLanguage,
                 mappedFeeds
         );
     }
