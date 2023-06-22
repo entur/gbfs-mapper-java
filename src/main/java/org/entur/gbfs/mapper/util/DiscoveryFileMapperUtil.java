@@ -6,7 +6,10 @@ import org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed;
 import java.net.URI;
 import java.util.List;
 
-public class MapperUtil {
+public class DiscoveryFileMapperUtil {
+
+    private DiscoveryFileMapperUtil() {}
+
     public static boolean filterLegacySourceFeeds(org.entur.gbfs.v2_3.gbfs.GBFSFeed sourceFeed) {
         return !List.of(
                 GBFSFeedName.SystemHours,
