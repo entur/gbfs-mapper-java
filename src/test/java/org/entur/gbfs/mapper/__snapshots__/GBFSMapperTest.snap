@@ -51,6 +51,23 @@ gbfs_v2_2_discovery_file_snapshot=[
 ]
 
 
+gbfs_v2_2_gbfs_versions_file_snapshot=[
+  {
+    "last_updated": 1434054678,
+    "ttl": 0,
+    "version": "3.0-RC",
+    "data": {
+      "versions": [
+        {
+          "version": "2.2",
+          "url": "https://test.com/gbfs.json"
+        }
+      ]
+    }
+  }
+]
+
+
 gbfs_v3_0_discovery_file_snapshot=[
   {
     "last_updated": 1606727710,
