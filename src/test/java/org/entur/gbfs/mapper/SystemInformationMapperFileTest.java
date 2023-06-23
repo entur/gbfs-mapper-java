@@ -11,12 +11,12 @@ import java.io.IOException;
 import java.net.URL;
 
 @ExtendWith({SnapshotExtension.class})
-class GbfsSystemInformationFileMapperTest {
+class SystemInformationMapperFileTest {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     private Expect expect;
 
-    @SnapshotName("gbfs_v2_2_system_information_file_snapshot")
+    @SnapshotName("gbfs_v2_3_to_v3_0_system_information_file_snapshot")
     @Test
     void testMapSystemInformationFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/system_information.json");
@@ -27,7 +27,7 @@ class GbfsSystemInformationFileMapperTest {
                 .toMatchSnapshot(mapped);
     }
 
-    @SnapshotName("gbfs_v3_0_system_information_file_snapshot")
+    @SnapshotName("gbfs_v3_0_to_v2_3_system_information_file_snapshot")
     @Test
     void testMapSystemInformationFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/system_information.json");

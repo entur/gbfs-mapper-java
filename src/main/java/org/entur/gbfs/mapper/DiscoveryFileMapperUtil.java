@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class GbfsDiscoveryFileAdditionalMapping {
+public class DiscoveryFileMapperUtil {
 
     public org.entur.gbfs.v3_0_RC.gbfs.GBFSData map(Map<String, GBFSFeeds> source, @Context String sourceLanguage) {
         List<GBFSFeed> mappedFeeds = source.get(sourceLanguage).getFeeds().stream()

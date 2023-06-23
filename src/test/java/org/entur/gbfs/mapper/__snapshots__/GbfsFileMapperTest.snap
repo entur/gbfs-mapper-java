@@ -1,4 +1,4 @@
-gbfs_v2_2_discovery_file_snapshot=[
+gbfs_v2_3_to_v3_0_discovery_file_snapshot=[
   {
     "last_updated": 1606727710,
     "ttl": 300,
@@ -51,7 +51,7 @@ gbfs_v2_2_discovery_file_snapshot=[
 ]
 
 
-gbfs_v3_0_discovery_file_snapshot=[
+gbfs_v3_0_to_v2_3_discovery_file_snapshot=[
   {
     "last_updated": 1606727710,
     "ttl": 300,
