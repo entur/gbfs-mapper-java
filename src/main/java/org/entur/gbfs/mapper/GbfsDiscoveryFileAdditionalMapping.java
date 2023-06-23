@@ -1,4 +1,4 @@
-package org.entur.gbfs.mapper.util;
+package org.entur.gbfs.mapper;
 
 import org.entur.gbfs.v2_3.gbfs.GBFSFeedName;
 import org.entur.gbfs.v2_3.gbfs.GBFSFeeds;
@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class DiscoveryFileMapperUtil {
+public class GbfsDiscoveryFileAdditionalMapping {
 
     public org.entur.gbfs.v3_0_RC.gbfs.GBFSData map(Map<String, GBFSFeeds> source, @Context String sourceLanguage) {
-        List<org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed> mappedFeeds = source.get(sourceLanguage).getFeeds().stream()
-                .filter(DiscoveryFileMapperUtil::filterLegacySourceFeeds)
-                .map(DiscoveryFileMapperUtil::map).collect(Collectors.toList());
+        List<GBFSFeed> mappedFeeds = source.get(sourceLanguage).getFeeds().stream()
+                .filter(this::filterLegacySourceFeeds)
+                .map(this::map).collect(Collectors.toList());
 
         return new org.entur.gbfs.v3_0_RC.gbfs.GBFSData()
                 .withFeeds(mappedFeeds);
@@ -23,7 +23,7 @@ public class DiscoveryFileMapperUtil {
 
     public Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> map(org.entur.gbfs.v3_0_RC.gbfs.GBFSData source, @Context String targetLanguage) {
         org.entur.gbfs.v2_3.gbfs.GBFSFeeds mappedFeeds = new org.entur.gbfs.v2_3.gbfs.GBFSFeeds();
-        mappedFeeds.setFeeds(source.getFeeds().stream().map(DiscoveryFileMapperUtil::map).collect(Collectors.toList()));
+        mappedFeeds.setFeeds(source.getFeeds().stream().map(this::map).collect(Collectors.toList()));
 
         return Map.of(
                 targetLanguage,
@@ -31,14 +31,14 @@ public class DiscoveryFileMapperUtil {
         );
     }
 
-    public static boolean filterLegacySourceFeeds(org.entur.gbfs.v2_3.gbfs.GBFSFeed sourceFeed) {
+    private boolean filterLegacySourceFeeds(org.entur.gbfs.v2_3.gbfs.GBFSFeed sourceFeed) {
         return !List.of(
                 GBFSFeedName.SystemHours,
                 GBFSFeedName.SystemCalendar
         ).contains(sourceFeed.getName());
     }
 
-    public static org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed map(org.entur.gbfs.v2_3.gbfs.GBFSFeed sourceFeed) {
+    private org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed map(org.entur.gbfs.v2_3.gbfs.GBFSFeed sourceFeed) {
         org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed targetFeed = new org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed();
         if (sourceFeed.getName().equals(GBFSFeedName.FreeBikeStatus)) {
             targetFeed.setName(GBFSFeed.Name.VEHICLE_STATUS);
@@ -49,7 +49,7 @@ public class DiscoveryFileMapperUtil {
         return targetFeed;
     }
 
-    public static org.entur.gbfs.v2_3.gbfs.GBFSFeed map(org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed sourceFeed) {
+    private org.entur.gbfs.v2_3.gbfs.GBFSFeed map(org.entur.gbfs.v3_0_RC.gbfs.GBFSFeed sourceFeed) {
         org.entur.gbfs.v2_3.gbfs.GBFSFeed targetFeed = new org.entur.gbfs.v2_3.gbfs.GBFSFeed();
 
         if (sourceFeed.getName().equals(GBFSFeed.Name.VEHICLE_STATUS)) {
