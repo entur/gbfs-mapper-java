@@ -1,6 +1,5 @@
 package org.entur.gbfs.mapper;
 
-import org.entur.gbfs.v3_0_RC.system_information.GBFSName;
 import org.mapstruct.Context;
 
 import java.util.List;
