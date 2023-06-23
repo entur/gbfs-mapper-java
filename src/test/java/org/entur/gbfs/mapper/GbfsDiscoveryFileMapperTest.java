@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 
 @ExtendWith({SnapshotExtension.class})
-public class GbfsDiscoveryFileMapperTest {
+class GbfsDiscoveryFileMapperTest {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     private Expect expect;
