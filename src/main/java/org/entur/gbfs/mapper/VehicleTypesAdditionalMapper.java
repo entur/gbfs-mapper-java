@@ -4,7 +4,7 @@ import org.mapstruct.Context;
 
 import java.util.List;
 
-public class VehicleTypesMappingUtil {
+public class VehicleTypesAdditionalMapper {
     List<org.entur.gbfs.v3_0_RC.vehicle_types.GBFSName> mapVehicleTypeName(String value, @Context String language) {
         if (value == null) {
             return null;

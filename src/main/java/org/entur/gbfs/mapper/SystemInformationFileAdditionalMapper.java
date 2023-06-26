@@ -4,7 +4,7 @@ import org.mapstruct.Context;
 
 import java.util.List;
 
-public class SystemInformationFileMapperUtil {
+public class SystemInformationFileAdditionalMapper {
     List<org.entur.gbfs.v3_0_RC.system_information.GBFSName> mapName(String value, @Context String language) {
         if (value == null) {
             return null;

@@ -7,9 +7,9 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(uses = {
-        DiscoveryFileMapperUtil.class,
-        SystemInformationFileMapperUtil.class,
-        VehicleTypesMappingUtil.class
+        DiscoveryFileAdditionalMapper.class,
+        SystemInformationFileAdditionalMapper.class,
+        VehicleTypesAdditionalMapper.class
 })
 public interface GBFSMapper {
     GBFSMapper INSTANCE = Mappers.getMapper( GBFSMapper.class );
