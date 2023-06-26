@@ -27,14 +27,14 @@ class GbfsVersionsMapperFileTest {
                 .toMatchSnapshot(mapped);
     }
 
-//    @SnapshotName("gbfs_v3_0_to_v2_3_gbfs_versions_file_snapshot")
-//    @Test
-//    void testMapGbfsVersionsFileInverse() throws IOException {
-//        URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/gbfs_versions.json");
-//        org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions.class);
-//        org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject);
-//        expect
-//                .serializer("json")
-//                .toMatchSnapshot(mapped);
-//    }
+    @SnapshotName("gbfs_v3_0_to_v2_3_gbfs_versions_file_snapshot")
+    @Test
+    void testMapGbfsVersionsFileInverse() throws IOException {
+        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/gbfs_versions.json");
+        org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions.class);
+        org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject);
+        expect
+                .serializer("json")
+                .toMatchSnapshot(mapped);
+    }
 }
