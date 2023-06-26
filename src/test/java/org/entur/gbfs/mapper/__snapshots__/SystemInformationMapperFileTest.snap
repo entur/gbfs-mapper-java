@@ -5,6 +5,9 @@ gbfs_v2_3_to_v3_0_system_information_file_snapshot=[
     "version": "3.0-RC",
     "data": {
       "system_id": "example_cityname",
+      "languages": [
+        "en"
+      ],
       "name": [
         {
           "text": "Example Bike Rental",
