@@ -1,10 +1,18 @@
 package org.entur.gbfs.mapper;
 
 import org.mapstruct.Context;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
-public class SystemInformationFileAdditionalMapper {
+@Mapper(imports = {List.class})
+public abstract class SystemInformationFileAdditionalMapper {
+
+    @SystemInformationDataMapper
+    @Mapping(target = "languages", expression = "java(List.of(language))")
+    abstract org.entur.gbfs.v3_0_RC.system_information.GBFSData mapData(org.entur.gbfs.v2_3.system_information.GBFSData source, @Context String language);
+
     List<org.entur.gbfs.v3_0_RC.system_information.GBFSName> mapName(String value, @Context String language) {
         if (value == null) {
             return null;

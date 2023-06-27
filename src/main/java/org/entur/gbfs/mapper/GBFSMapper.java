@@ -30,10 +30,8 @@ public interface GBFSMapper {
     org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions source);
 
     @Mapping(target = "version", constant = "_3_0_RC")
+    @Mapping(target = "data", qualifiedBy = SystemInformationDataMapper.class)
     org.entur.gbfs.v3_0_RC.system_information.GBFSSystemInformation map(org.entur.gbfs.v2_3.system_information.GBFSSystemInformation source, @Context String language);
-
-    @Mapping(target = "languages", expression = "java(List.of(language))")
-    org.entur.gbfs.v3_0_RC.system_information.GBFSData mapData(org.entur.gbfs.v2_3.system_information.GBFSData source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
     org.entur.gbfs.v2_3.system_information.GBFSSystemInformation map(org.entur.gbfs.v3_0_RC.system_information.GBFSSystemInformation source, @Context String language);
