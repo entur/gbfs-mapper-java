@@ -1,0 +1,132 @@
+gbfs_v2_3_to_v3_0_vehicle_status_file_snapshot=[
+  {
+    "last_updated": 1640887163,
+    "ttl": 0,
+    "version": "3.0-RC",
+    "data": {
+      "vehicles": [
+        {
+          "vehicle_id": "973a5c94-c288-4a2b-afa6-de8aeb6ae2e5",
+          "lat": 12.345678,
+          "lon": 56.789012,
+          "is_reserved": false,
+          "is_disabled": false,
+          "rental_uris": {
+            "android": "https://www.example.com/app?vehicle_id=973a5c94-c288-4a2b-afa6-de8aeb6ae2e5&platform=android&",
+            "ios": "https://www.example.com/app?vehicle_id=973a5c94-c288-4a2b-afa6-de8aeb6ae2e5&platform=ios"
+          },
+          "vehicle_type_id": "abc123",
+          "last_reported": 1.609866109E9
+        },
+        {
+          "vehicle_id": "987fd100-b822-4347-86a4-b3eef8ca8b53",
+          "is_reserved": false,
+          "is_disabled": false,
+          "vehicle_type_id": "def456",
+          "last_reported": 1.609866204E9,
+          "current_range_meters": 6543.0,
+          "station_id": "86",
+          "pricing_plan_id": "plan3"
+        },
+        {
+          "vehicle_id": "45bd3fb7-a2d5-4def-9de1-c645844ba962",
+          "lat": 12.345678,
+          "lon": 56.789012,
+          "is_reserved": false,
+          "is_disabled": false,
+          "vehicle_type_id": "abc123",
+          "last_reported": 1.609866109E9,
+          "current_range_meters": 400000.0,
+          "home_station_id": "station1",
+          "vehicle_equipment": [
+            "child_seat_a",
+            "winter_tires"
+          ],
+          "available_until": "2021-05-17T15:00:00Z"
+        },
+        {
+          "vehicle_id": "d4521def-7922-4e46-8e1d-8ac397239bd0",
+          "is_reserved": false,
+          "is_disabled": false,
+          "vehicle_type_id": "def456",
+          "last_reported": 1.609866204E9,
+          "current_range_meters": 6543.0,
+          "current_fuel_percent": 0.7,
+          "station_id": "86",
+          "home_station_id": "146",
+          "pricing_plan_id": "plan3",
+          "vehicle_equipment": [
+            "child_seat_a"
+          ]
+        }
+      ]
+    }
+  }
+]
+
+
+gbfs_v3_0_to_v2_3_vehicle_status_file_snapshot=[
+  {
+    "last_updated": 1640887163,
+    "ttl": 0,
+    "version": "2.3",
+    "data": {
+      "bikes": [
+        {
+          "bike_id": "973a5c94-c288-4a2b-afa6-de8aeb6ae2e5",
+          "lat": 12.345678,
+          "lon": 56.789012,
+          "is_reserved": false,
+          "is_disabled": false,
+          "rental_uris": {
+            "android": "https://www.example.com/app?vehicle_id=973a5c94-c288-4a2b-afa6-de8aeb6ae2e5&platform=android&",
+            "ios": "https://www.example.com/app?vehicle_id=973a5c94-c288-4a2b-afa6-de8aeb6ae2e5&platform=ios"
+          },
+          "vehicle_type_id": "abc123",
+          "last_reported": 1.609866109E9
+        },
+        {
+          "bike_id": "987fd100-b822-4347-86a4-b3eef8ca8b53",
+          "is_reserved": false,
+          "is_disabled": false,
+          "vehicle_type_id": "def456",
+          "last_reported": 1.609866204E9,
+          "current_range_meters": 6543.0,
+          "station_id": "86",
+          "pricing_plan_id": "plan3"
+        },
+        {
+          "bike_id": "45bd3fb7-a2d5-4def-9de1-c645844ba962",
+          "lat": 12.345678,
+          "lon": 56.789012,
+          "is_reserved": false,
+          "is_disabled": false,
+          "vehicle_type_id": "abc123",
+          "last_reported": 1.609866109E9,
+          "current_range_meters": 400000.0,
+          "home_station_id": "station1",
+          "vehicle_equipment": [
+            "child_seat_a",
+            "winter_tires"
+          ],
+          "available_until": "2021-05-17T15:00:00Z"
+        },
+        {
+          "bike_id": "d4521def-7922-4e46-8e1d-8ac397239bd0",
+          "is_reserved": false,
+          "is_disabled": false,
+          "vehicle_type_id": "def456",
+          "last_reported": 1.609866204E9,
+          "current_range_meters": 6543.0,
+          "current_fuel_percent": 0.7,
+          "station_id": "86",
+          "home_station_id": "146",
+          "pricing_plan_id": "plan3",
+          "vehicle_equipment": [
+            "child_seat_a"
+          ]
+        }
+      ]
+    }
+  }
+]
