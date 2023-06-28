@@ -77,6 +77,7 @@ gbfs_v3_0_to_v2_3_system_information_file_snapshot=[
     "version": "2.3",
     "data": {
       "system_id": "example_cityname",
+      "language": "en",
       "name": "Example Bike Rental",
       "short_name": "Example Bike",
       "operator": "Example Sharing, Inc",

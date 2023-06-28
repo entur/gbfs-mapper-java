@@ -13,6 +13,10 @@ public abstract class SystemInformationAdditionalMapper {
     @Mapping(target = "languages", expression = "java(List.of(language))")
     abstract org.entur.gbfs.v3_0_RC.system_information.GBFSData mapData(org.entur.gbfs.v2_3.system_information.GBFSData source, @Context String language);
 
+    @SystemInformationDataMapper
+    @Mapping(target = "language", expression = "java(language)")
+    abstract org.entur.gbfs.v2_3.system_information.GBFSData mapDataInverse(org.entur.gbfs.v3_0_RC.system_information.GBFSData source, @Context String language);
+
     List<org.entur.gbfs.v3_0_RC.system_information.GBFSName> mapName(String value, @Context String language) {
         if (value == null) {
             return null;
