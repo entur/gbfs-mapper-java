@@ -11,7 +11,8 @@ import org.mapstruct.factory.Mappers;
         SystemInformationFileAdditionalMapper.class,
         VehicleTypesAdditionalMapper.class,
         VehicleStatusFileAdditionalMapper.class,
-        StationInformationAdditionalMapper.class
+        StationInformationAdditionalMapper.class,
+        StationStatusAdditionalMapper.class
 })
 public interface GBFSMapper {
     GBFSMapper INSTANCE = Mappers.getMapper( GBFSMapper.class );
@@ -57,4 +58,10 @@ public interface GBFSMapper {
 
     @Mapping(target = "version", constant = "2.3")
     org.entur.gbfs.v2_3.station_information.GBFSStationInformation map(org.entur.gbfs.v3_0_RC.station_information.GBFSStationInformation source, @Context String language);
+
+    @Mapping(target = "version", constant = "_3_0_RC")
+    org.entur.gbfs.v3_0_RC.station_status.GBFSStationStatus map(org.entur.gbfs.v2_3.station_status.GBFSStationStatus source);
+
+    @Mapping(target = "version", constant = "2.3")
+    org.entur.gbfs.v2_3.station_status.GBFSStationStatus map(org.entur.gbfs.v3_0_RC.station_status.GBFSStationStatus source);
 }
