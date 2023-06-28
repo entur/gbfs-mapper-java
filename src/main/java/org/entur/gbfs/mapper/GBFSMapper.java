@@ -8,9 +8,9 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(uses = {
         DiscoveryFileAdditionalMapper.class,
-        SystemInformationFileAdditionalMapper.class,
+        SystemInformationAdditionalMapper.class,
         VehicleTypesAdditionalMapper.class,
-        VehicleStatusFileAdditionalMapper.class,
+        VehicleStatusAdditionalMapper.class,
         StationInformationAdditionalMapper.class,
         StationStatusAdditionalMapper.class
 })

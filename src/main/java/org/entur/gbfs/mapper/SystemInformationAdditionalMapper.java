@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 import java.util.List;
 
 @Mapper(imports = {List.class})
-public abstract class SystemInformationFileAdditionalMapper {
+public abstract class SystemInformationAdditionalMapper {
 
     @SystemInformationDataMapper
     @Mapping(target = "languages", expression = "java(List.of(language))")

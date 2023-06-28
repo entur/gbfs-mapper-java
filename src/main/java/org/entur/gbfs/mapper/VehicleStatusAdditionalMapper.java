@@ -5,7 +5,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 @Mapper
-public interface VehicleStatusFileAdditionalMapper {
+public interface VehicleStatusAdditionalMapper {
 
     @VehicleStatusDataMapper
     @Mapping(target = "bikes", source = "vehicles")
