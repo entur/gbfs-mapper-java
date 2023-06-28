@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 
 @ExtendWith({SnapshotExtension.class})
-class StationInformationFileMapperTest {
+class StationInformationMapperTest {
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private Expect expect;
 
