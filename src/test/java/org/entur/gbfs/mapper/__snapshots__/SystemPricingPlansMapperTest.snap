@@ -1,0 +1,140 @@
+gbfs_v2_3_to_v3_0_system_pricing_plans_file_snapshot=[
+  {
+    "last_updated": 1640887163,
+    "ttl": 0,
+    "version": "3.0-RC",
+    "data": {
+      "plans": [
+        {
+          "plan_id": "bike_plan_1",
+          "name": [
+            {
+              "text": "One-Way",
+              "language": "en"
+            }
+          ],
+          "currency": "USD",
+          "price": 2.0,
+          "is_taxable": false,
+          "description": [
+            {
+              "text": "Includes 10km, overage fees apply after 10km.",
+              "language": "en"
+            }
+          ],
+          "per_km_pricing": [
+            {
+              "start": 10,
+              "rate": 1.0,
+              "interval": 1,
+              "end": 25
+            },
+            {
+              "start": 25,
+              "rate": 0.5,
+              "interval": 1
+            },
+            {
+              "start": 25,
+              "rate": 3.0,
+              "interval": 5
+            }
+          ]
+        },
+        {
+          "plan_id": "cargo_plan_1",
+          "name": [
+            {
+              "text": "Simple Rate",
+              "language": "en"
+            }
+          ],
+          "currency": "CAD",
+          "price": 3.0,
+          "is_taxable": true,
+          "description": [
+            {
+              "text": "$3 unlock fee, $0.25 per kilometer and 0.50 per minute.",
+              "language": "en"
+            }
+          ],
+          "per_km_pricing": [
+            {
+              "start": 0,
+              "rate": 0.25,
+              "interval": 1
+            }
+          ],
+          "per_min_pricing": [
+            {
+              "start": 0,
+              "rate": 0.5,
+              "interval": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
+
+
+gbfs_v3_0_to_v2_3_system_pricing_plans_file_snapshot=[
+  {
+    "last_updated": 1640887163,
+    "ttl": 0,
+    "version": "2.3",
+    "data": {
+      "plans": [
+        {
+          "plan_id": "bike_plan_1",
+          "name": "One-Way",
+          "currency": "USD",
+          "price": 2.0,
+          "is_taxable": false,
+          "description": "Includes 10km, overage fees apply after 10km.",
+          "per_km_pricing": [
+            {
+              "start": 10,
+              "rate": 1.0,
+              "interval": 1,
+              "end": 25
+            },
+            {
+              "start": 25,
+              "rate": 0.5,
+              "interval": 1
+            },
+            {
+              "start": 25,
+              "rate": 3.0,
+              "interval": 5
+            }
+          ]
+        },
+        {
+          "plan_id": "cargo_plan_1",
+          "name": "Simple Rate",
+          "currency": "CAD",
+          "price": 3.0,
+          "is_taxable": true,
+          "description": "$3 unlock fee, $0.25 per kilometer and 0.50 per minute.",
+          "per_km_pricing": [
+            {
+              "start": 0,
+              "rate": 0.25,
+              "interval": 1
+            }
+          ],
+          "per_min_pricing": [
+            {
+              "start": 0,
+              "rate": 0.5,
+              "interval": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
