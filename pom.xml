@@ -53,7 +53,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <gbfs-java-model.version>3.0.1-20230626.104707-23</gbfs-java-model.version>
+        <gbfs-java-model.version>3.0.1-20230628.182342-24</gbfs-java-model.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
