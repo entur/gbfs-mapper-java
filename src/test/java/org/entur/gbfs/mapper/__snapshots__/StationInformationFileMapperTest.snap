@@ -1,0 +1,174 @@
+gbfs_v2_3_to_v3_0_station_information_file_snapshot=[
+  {
+    "last_updated": 1640887163,
+    "ttl": 0,
+    "version": "3.0-RC",
+    "data": {
+      "stations": [
+        {
+          "station_id": "pga",
+          "name": [
+            {
+              "text": "Parking garage A",
+              "language": "en"
+            }
+          ],
+          "lat": 12.345678,
+          "lon": 45.678901,
+          "parking_type": "underground_parking",
+          "parking_hoop": false,
+          "contact_phone": "+33109874321",
+          "vehicle_type_dock_capacity": [
+            {
+              "vehicle_type_id": "abc123",
+              "count": 7
+            },
+            {
+              "vehicle_type_id": "def456",
+              "count": 0
+            }
+          ],
+          "is_charging_station": true
+        },
+        {
+          "station_id": "station12",
+          "name": [
+            {
+              "text": "SE Belmont & SE 10th",
+              "language": "en"
+            }
+          ],
+          "lat": 45.516445,
+          "lon": -122.655775,
+          "is_virtual_station": true,
+          "station_area": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -122.655775,
+                    45.516445
+                  ],
+                  [
+                    -122.655705,
+                    45.516445
+                  ],
+                  [
+                    -122.655705,
+                    45.516495
+                  ],
+                  [
+                    -122.655775,
+                    45.516495
+                  ],
+                  [
+                    -122.655775,
+                    45.516445
+                  ]
+                ]
+              ]
+            ]
+          },
+          "capacity": 16,
+          "vehicle_type_area_capacity": [
+            {
+              "vehicle_type_id": "abc123",
+              "count": 7
+            },
+            {
+              "vehicle_type_id": "def456",
+              "count": 8
+            }
+          ],
+          "vehicle_type_dock_capacity": [
+            {
+              "vehicle_type_id": "abc123",
+              "count": 10
+            },
+            {
+              "vehicle_type_id": "def456",
+              "count": 10
+            }
+          ],
+          "is_valet_station": false,
+          "is_charging_station": false
+        }
+      ]
+    }
+  }
+]
+
+
+gbfs_v3_0_to_v2_3_station_information_file_snapshot=[
+  {
+    "last_updated": 1640887163,
+    "ttl": 0,
+    "version": "2.3",
+    "data": {
+      "stations": [
+        {
+          "station_id": "pga",
+          "name": "Parking garage A",
+          "lat": 12.345678,
+          "lon": 45.678901,
+          "parking_type": "underground_parking",
+          "parking_hoop": false,
+          "contact_phone": "+33109874321",
+          "is_charging_station": true,
+          "vehicle_type_capacity": {
+            "abc123": 7.0,
+            "def456": 0.0
+          }
+        },
+        {
+          "station_id": "station12",
+          "name": "SE Belmont & SE 10th",
+          "lat": 45.516445,
+          "lon": -122.655775,
+          "is_virtual_station": true,
+          "station_area": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -122.655775,
+                    45.516445
+                  ],
+                  [
+                    -122.655705,
+                    45.516445
+                  ],
+                  [
+                    -122.655705,
+                    45.516495
+                  ],
+                  [
+                    -122.655775,
+                    45.516495
+                  ],
+                  [
+                    -122.655775,
+                    45.516445
+                  ]
+                ]
+              ]
+            ]
+          },
+          "capacity": 16,
+          "vehicle_capacity": {
+            "abc123": 7.0,
+            "def456": 8.0
+          },
+          "is_valet_station": false,
+          "is_charging_station": false,
+          "vehicle_type_capacity": {
+            "abc123": 10.0,
+            "def456": 10.0
+          }
+        }
+      ]
+    }
+  }
+]
