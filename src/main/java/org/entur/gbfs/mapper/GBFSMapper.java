@@ -31,10 +31,10 @@ public interface GBFSMapper {
     org.entur.gbfs.v2_3.gbfs.GBFS map(org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs source, @Context String language);
 
     @Mapping(target = "version", constant = "_3_0_RC")
-    org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions source);
+    org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions source);
+    org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v3_0_RC.gbfs_versions.GBFSGbfsVersions source, @Context String language);
 
     @Mapping(target = "version", constant = "_3_0_RC")
     @Mapping(target = "data", qualifiedBy = SystemInformationDataMapper.class)
@@ -52,11 +52,11 @@ public interface GBFSMapper {
 
     @Mapping(target = "version", constant = "_3_0_RC")
     @Mapping(target = "data", qualifiedBy = VehicleStatusDataMapper.class)
-    org.entur.gbfs.v3_0_RC.vehicle_status.GBFSVehicleStatus map(org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus source);
+    org.entur.gbfs.v3_0_RC.vehicle_status.GBFSVehicleStatus map(org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
     @Mapping(target = "data", qualifiedBy = VehicleStatusDataMapper.class)
-    org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus map(org.entur.gbfs.v3_0_RC.vehicle_status.GBFSVehicleStatus source);
+    org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus map(org.entur.gbfs.v3_0_RC.vehicle_status.GBFSVehicleStatus source, @Context String language);
 
     @Mapping(target = "version", constant = "_3_0_RC")
     org.entur.gbfs.v3_0_RC.station_information.GBFSStationInformation map(org.entur.gbfs.v2_3.station_information.GBFSStationInformation source, @Context String language);
@@ -65,10 +65,10 @@ public interface GBFSMapper {
     org.entur.gbfs.v2_3.station_information.GBFSStationInformation map(org.entur.gbfs.v3_0_RC.station_information.GBFSStationInformation source, @Context String language);
 
     @Mapping(target = "version", constant = "_3_0_RC")
-    org.entur.gbfs.v3_0_RC.station_status.GBFSStationStatus map(org.entur.gbfs.v2_3.station_status.GBFSStationStatus source);
+    org.entur.gbfs.v3_0_RC.station_status.GBFSStationStatus map(org.entur.gbfs.v2_3.station_status.GBFSStationStatus source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.station_status.GBFSStationStatus map(org.entur.gbfs.v3_0_RC.station_status.GBFSStationStatus source);
+    org.entur.gbfs.v2_3.station_status.GBFSStationStatus map(org.entur.gbfs.v3_0_RC.station_status.GBFSStationStatus source, @Context String language);
 
     @Mapping(target = "version", constant = "_3_0_RC")
     org.entur.gbfs.v3_0_RC.system_pricing_plans.GBFSSystemPricingPlans map(org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans source, @Context String language);

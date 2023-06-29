@@ -1,12 +1,10 @@
 package org.entur.gbfs.mapper;
 
 import org.mapstruct.Context;
-import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper
-public abstract class SystemAlertsAdditionalMapper {
+public class SystemAlertsAdditionalMapper {
     List<org.entur.gbfs.v3_0_RC.system_alerts.GBFSUrl> mapUrl(String value, @Context String language) {
         if (value == null) {
             return null;

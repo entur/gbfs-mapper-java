@@ -1,11 +1,9 @@
 package org.entur.gbfs.mapper;
 
 import org.mapstruct.Context;
-import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper
 public class SystemPricingPlansAdditionalMapper {
     List<org.entur.gbfs.v3_0_RC.system_pricing_plans.GBFSName> mapName(String value, @Context String language) {
         if (value == null) {
