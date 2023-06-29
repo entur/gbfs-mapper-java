@@ -13,7 +13,8 @@ import org.mapstruct.factory.Mappers;
         VehicleStatusAdditionalMapper.class,
         StationInformationAdditionalMapper.class,
         StationStatusAdditionalMapper.class,
-        SystemPricingPlansAdditionalMapper.class
+        SystemPricingPlansAdditionalMapper.class,
+        GeofencingZonesAdditionalMapper.class
 })
 public interface GBFSMapper {
     GBFSMapper INSTANCE = Mappers.getMapper( GBFSMapper.class );
@@ -72,4 +73,10 @@ public interface GBFSMapper {
 
     @Mapping(target = "version", constant = "2.3")
     org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans map(org.entur.gbfs.v3_0_RC.system_pricing_plans.GBFSSystemPricingPlans source, @Context String language);
+
+    @Mapping(target = "version", constant = "_3_0_RC")
+    org.entur.gbfs.v3_0_RC.geofencing_zones.GBFSGeofencingZones map(org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones source, @Context String language);
+
+    @Mapping(target = "version", constant = "2.3")
+    org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones map(org.entur.gbfs.v3_0_RC.geofencing_zones.GBFSGeofencingZones source, @Context String language);
 }
