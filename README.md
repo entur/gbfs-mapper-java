@@ -1,10 +1,15 @@
 # gbfs-mapper-java
 
-Bidirectional mapper between versions 2.x and 3.x of GBFS.
+Bidirectional mapper between versions 2.x and 3.x of [GBFS](https://github.com/MobilityData/gbfs).
 
 Usage:
 
-    var targetFeed = GBFSMapper.INSTANCE.map(sourceFeed, "en");
+```java
+var target = GBFSMapper.INSTANCE.map(source, "en");
+```
+
+where `source` and `target` are instances of GBFS files from
+[gbfs-java-model](https://github.com/entur/gbfs-java-model).
 
 ### Notes on language
 Due to how internationalization works prior to version 3, this mapper only
@@ -20,8 +25,9 @@ translations.
 
 ### Semantics of geofencing zones
 
-In `geofencing_zones.json`, the semantics of the geometry was changed in version 3.x.
-It used to be the case that "A clockwise arrangement of points defines the area enclosed 
-by the polygon, while a counterclockwise order defines the area outside the polygon".
+[The semantics of the geometry was changed](https://github.com/MobilityData/gbfs/pull/481)
+in version 3.x of `geofencing_zones.json`. It used to be the case that
+"A clockwise arrangement of points defines the area enclosed by the polygon,
+while a counterclockwise order defines the area outside the polygon".
 
 However, polygons are mapped as is, without regards to changes in semantics.
