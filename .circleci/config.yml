@@ -85,10 +85,10 @@ workflows:
     jobs:
       - build:
           context: global
-#      - deploy:
-#          context: global
-#          requires:
-#            - build
-#          filters:
-#            branches:
-#              only: master
+      - deploy:
+          context: global
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
