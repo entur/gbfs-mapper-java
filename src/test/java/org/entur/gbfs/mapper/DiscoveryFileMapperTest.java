@@ -10,6 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.io.IOException;
 import java.net.URL;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 @ExtendWith({SnapshotExtension.class})
 class DiscoveryFileMapperTest {
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -22,9 +24,11 @@ class DiscoveryFileMapperTest {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/gbfs.json");
         org.entur.gbfs.v2_3.gbfs.GBFS testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.gbfs.GBFS.class);
         org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
-        expect
-                .serializer("json")
-                .toMatchSnapshot(mapped);
+        assertDoesNotThrow(() -> {
+            expect
+                    .serializer("json")
+                    .toMatchSnapshot(mapped);
+        });
     }
 
     @SnapshotName("gbfs_v3_0_to_v2_3_discovery_file_snapshot")
@@ -33,8 +37,10 @@ class DiscoveryFileMapperTest {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/gbfs.json");
         org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC.gbfs.GBFSGbfs.class);
         org.entur.gbfs.v2_3.gbfs.GBFS mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
-        expect
-                .serializer("json")
-                .toMatchSnapshot(mapped);
+        assertDoesNotThrow(() -> {
+            expect
+                    .serializer("json")
+                    .toMatchSnapshot(mapped);
+        });
     }
 }
