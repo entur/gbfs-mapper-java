@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.entur.gbfs</groupId>
     <artifactId>gbfs-mapper-java</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>gbfs-mapper-java</name>
 
     <description>Enables mapping between different versions of GBFS (bidirectional)</description>
@@ -34,7 +32,7 @@
         <connection>scm:git:ssh://git@github.com/entur/gbfs-mapper-java.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/entur/gbfs-mapper-java.git</developerConnection>
         <url>https://github.com/entur/gbfs-mapper-java/tree/master</url>
-        <tag>HEAD</tag>
+        <tag>gbfs-mapper-java-1.0.0</tag>
     </scm>
     <distributionManagement>
         <snapshotRepository>
@@ -238,7 +236,7 @@
                                 <requireJavaVersion>
                                     <version>${jdk.version}</version>
                                 </requireJavaVersion>
-                                <requirePluginVersions/>
+                                <requirePluginVersions />
                             </rules>
                         </configuration>
                     </execution>
