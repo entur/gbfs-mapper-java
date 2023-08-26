@@ -76,7 +76,7 @@
         <!-- Unit test frameworks versions -->
         <junit-jupiter.version>5.9.2</junit-jupiter.version>
         <java-snapshot-testing.version>4.0.6</java-snapshot-testing.version>
-        <jackson.version>2.11.3</jackson.version>
+        <jackson.version>2.15.2</jackson.version>
         <slf4j-simple.version>2.0.7</slf4j-simple.version>
     </properties>
 
