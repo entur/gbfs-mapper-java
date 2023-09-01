@@ -1,3 +1,7 @@
 {
-  "extends": ["github>entur/ror-renovate-config"]
+  "extends": [
+    "github>entur/ror-renovate-config"
+  ],
+  "timezone": "Europe/Oslo",
+  "automergeSchedule": "before 4am on the first day of the week"
 }
