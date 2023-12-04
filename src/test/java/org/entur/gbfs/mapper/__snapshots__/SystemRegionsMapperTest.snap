@@ -1,43 +1,43 @@
 gbfs_v2_3_to_v3_0_system_regions_file_snapshot=[
   {
-    "last_updated": 1640887163,
-    "ttl": 86400,
-    "version": "3.0-RC",
-    "data": {
-      "regions": [
+    "last_updated" : 1640887163,
+    "ttl" : 86400,
+    "version" : "3.0-RC",
+    "data" : {
+      "regions" : [
         {
-          "region_id": "3",
-          "name": [
+          "region_id" : "3",
+          "name" : [
             {
-              "text": "North",
-              "language": "en"
+              "text" : "North",
+              "language" : "en"
             }
           ]
         },
         {
-          "region_id": "4",
-          "name": [
+          "region_id" : "4",
+          "name" : [
             {
-              "text": "East",
-              "language": "en"
+              "text" : "East",
+              "language" : "en"
             }
           ]
         },
         {
-          "region_id": "5",
-          "name": [
+          "region_id" : "5",
+          "name" : [
             {
-              "text": "South",
-              "language": "en"
+              "text" : "South",
+              "language" : "en"
             }
           ]
         },
         {
-          "region_id": "6",
-          "name": [
+          "region_id" : "6",
+          "name" : [
             {
-              "text": "West",
-              "language": "en"
+              "text" : "West",
+              "language" : "en"
             }
           ]
         }
@@ -49,26 +49,26 @@ gbfs_v2_3_to_v3_0_system_regions_file_snapshot=[
 
 gbfs_v3_0_to_v2_3_system_regions_file_snapshot=[
   {
-    "last_updated": 1640887163,
-    "ttl": 86400,
-    "version": "2.3",
-    "data": {
-      "regions": [
+    "last_updated" : 1640887163,
+    "ttl" : 86400,
+    "version" : "2.3",
+    "data" : {
+      "regions" : [
         {
-          "region_id": "3",
-          "name": "North"
+          "region_id" : "3",
+          "name" : "North"
         },
         {
-          "region_id": "4",
-          "name": "East"
+          "region_id" : "4",
+          "name" : "East"
         },
         {
-          "region_id": "5",
-          "name": "South"
+          "region_id" : "5",
+          "name" : "South"
         },
         {
-          "region_id": "6",
-          "name": "West"
+          "region_id" : "6",
+          "name" : "West"
         }
       ]
     }
