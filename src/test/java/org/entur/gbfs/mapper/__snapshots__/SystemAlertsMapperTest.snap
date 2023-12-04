@@ -1,43 +1,43 @@
 gbfs_v2_3_to_v3_0_system_alerts_file_snapshot=[
   {
-    "last_updated": 1604519393,
-    "ttl": 60,
-    "version": "3.0-RC",
-    "data": {
-      "alerts": [
+    "last_updated" : 1604519393,
+    "ttl" : 60,
+    "version" : "3.0-RC",
+    "data" : {
+      "alerts" : [
         {
-          "alert_id": "21",
-          "type": "station_closure",
-          "times": [
+          "alert_id" : "21",
+          "type" : "station_closure",
+          "times" : [
             {
-              "start": 1604448000,
-              "end": 1604674800
+              "start" : 1604448000,
+              "end" : 1604674800
             }
           ],
-          "station_ids": [
+          "station_ids" : [
             "123",
             "456",
             "789"
           ],
-          "url": [
+          "url" : [
             {
-              "text": "https://example.com/more-info",
-              "language": "en"
+              "text" : "https://example.com/more-info",
+              "language" : "en"
             }
           ],
-          "summary": [
+          "summary" : [
             {
-              "text": "Disruption of Service",
-              "language": "en"
+              "text" : "Disruption of Service",
+              "language" : "en"
             }
           ],
-          "description": [
+          "description" : [
             {
-              "text": "The three stations on Broadway will be out of service from 12:00am Nov 3 to 3:00pm Nov 6th to accommodate road work",
-              "language": "en"
+              "text" : "The three stations on Broadway will be out of service from 12:00am Nov 3 to 3:00pm Nov 6th to accommodate road work",
+              "language" : "en"
             }
           ],
-          "last_updated": 1.6041981E9
+          "last_updated" : 1.6041981E9
         }
       ]
     }
@@ -47,29 +47,29 @@ gbfs_v2_3_to_v3_0_system_alerts_file_snapshot=[
 
 gbfs_v3_0_to_v2_3_system_alerts_file_snapshot=[
   {
-    "last_updated": 1604519393,
-    "ttl": 60,
-    "version": "2.3",
-    "data": {
-      "alerts": [
+    "last_updated" : 1604519393,
+    "ttl" : 60,
+    "version" : "2.3",
+    "data" : {
+      "alerts" : [
         {
-          "alert_id": "21",
-          "type": "station_closure",
-          "times": [
+          "alert_id" : "21",
+          "type" : "station_closure",
+          "times" : [
             {
-              "start": 1604448000,
-              "end": 1604674800
+              "start" : 1604448000,
+              "end" : 1604674800
             }
           ],
-          "station_ids": [
+          "station_ids" : [
             "123",
             "456",
             "789"
           ],
-          "url": "https://example.com/more-info",
-          "summary": "Disruption of Service",
-          "description": "The three stations on Broadway will be out of service from 12:00am Nov 3 to 3:00pm Nov 6th to accommodate road work",
-          "last_updated": 1.6041981E9
+          "url" : "https://example.com/more-info",
+          "summary" : "Disruption of Service",
+          "description" : "The three stations on Broadway will be out of service from 12:00am Nov 3 to 3:00pm Nov 6th to accommodate road work",
+          "last_updated" : 1.6041981E9
         }
       ]
     }

@@ -1,40 +1,40 @@
 gbfs_v2_3_to_v3_0_geofencing_zones_file_snapshot=[
   {
-    "last_updated": 1640887163,
-    "ttl": 60,
-    "version": "3.0-RC",
-    "data": {
-      "geofencing_zones": {
-        "type": "FeatureCollection",
-        "features": [
+    "last_updated" : 1640887163,
+    "ttl" : 60,
+    "version" : "3.0-RC",
+    "data" : {
+      "geofencing_zones" : {
+        "type" : "FeatureCollection",
+        "features" : [
           {
-            "type": "Feature",
-            "properties": {
-              "name": [
+            "type" : "Feature",
+            "properties" : {
+              "name" : [
                 {
-                  "text": "NE 24th/NE Knott",
-                  "language": "en"
+                  "text" : "NE 24th/NE Knott",
+                  "language" : "en"
                 }
               ],
-              "start": 1593878400,
-              "end": 1593907260,
-              "rules": [
+              "start" : 1593878400,
+              "end" : 1593907260,
+              "rules" : [
                 {
-                  "vehicle_type_id": [
-                    "moped1",
-                    "car1"
+                  "vehicle_type_id" : [
+                    "car1",
+                    "moped1"
                   ],
-                  "ride_start_allowed": false,
-                  "ride_end_allowed": false,
-                  "ride_through_allowed": true,
-                  "maximum_speed_kph": 10,
-                  "station_parking": true
+                  "ride_start_allowed" : false,
+                  "ride_end_allowed" : false,
+                  "ride_through_allowed" : true,
+                  "maximum_speed_kph" : 10,
+                  "station_parking" : true
                 }
               ]
             },
-            "geometry": {
-              "type": "MultiPolygon",
-              "coordinates": [
+            "geometry" : {
+              "type" : "MultiPolygon",
+              "coordinates" : [
                 [
                   [
                     [
@@ -95,35 +95,35 @@ gbfs_v2_3_to_v3_0_geofencing_zones_file_snapshot=[
 
 gbfs_v3_0_to_v2_3_geofencing_zones_file_snapshot=[
   {
-    "last_updated": 1640887163,
-    "ttl": 60,
-    "version": "2.3",
-    "data": {
-      "geofencing_zones": {
-        "type": "FeatureCollection",
-        "features": [
+    "last_updated" : 1640887163,
+    "ttl" : 60,
+    "version" : "2.3",
+    "data" : {
+      "geofencing_zones" : {
+        "type" : "FeatureCollection",
+        "features" : [
           {
-            "type": "Feature",
-            "properties": {
-              "name": "NE 24th/NE Knott",
-              "start": 1593878400,
-              "end": 1593907260,
-              "rules": [
+            "type" : "Feature",
+            "properties" : {
+              "name" : "NE 24th/NE Knott",
+              "start" : 1593878400,
+              "end" : 1593907260,
+              "rules" : [
                 {
-                  "vehicle_type_id": [
-                    "moped1",
-                    "car1"
+                  "vehicle_type_id" : [
+                    "car1",
+                    "moped1"
                   ],
-                  "ride_allowed": false,
-                  "ride_through_allowed": true,
-                  "maximum_speed_kph": 10,
-                  "station_parking": true
+                  "ride_allowed" : false,
+                  "ride_through_allowed" : true,
+                  "maximum_speed_kph" : 10,
+                  "station_parking" : true
                 }
               ]
             },
-            "geometry": {
-              "type": "MultiPolygon",
-              "coordinates": [
+            "geometry" : {
+              "type" : "MultiPolygon",
+              "coordinates" : [
                 [
                   [
                     [
