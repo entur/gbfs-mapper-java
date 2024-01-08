@@ -51,13 +51,13 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <gbfs-java-model.version>3.0.16</gbfs-java-model.version>
+        <gbfs-java-model.version>3.0.20</gbfs-java-model.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
-        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
         <maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
@@ -75,9 +75,9 @@
 
         <!-- Unit test frameworks versions -->
         <junit-jupiter.version>5.10.1</junit-jupiter.version>
-        <java-snapshot-testing.version>4.0.6</java-snapshot-testing.version>
-        <jackson.version>2.16.0</jackson.version>
-        <slf4j-simple.version>2.0.9</slf4j-simple.version>
+        <java-snapshot-testing.version>4.0.7</java-snapshot-testing.version>
+        <jackson.version>2.16.1</jackson.version>
+        <slf4j-simple.version>2.0.11</slf4j-simple.version>
     </properties>
 
     <dependencies>
@@ -261,7 +261,7 @@
             <plugin>
                 <groupId>com.amashchenko.maven.plugin</groupId>
                 <artifactId>gitflow-maven-plugin</artifactId>
-                <version>1.20.0</version>
+                <version>1.21.0</version>
                 <configuration>
                     <allowSnapshots>false</allowSnapshots>
                     <verbose>true</verbose>
