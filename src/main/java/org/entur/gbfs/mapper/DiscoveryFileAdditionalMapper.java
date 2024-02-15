@@ -8,14 +8,14 @@ import org.mapstruct.Context;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class DiscoveryFileAdditionalMapper {
 
     public org.entur.gbfs.v3_0_RC2.gbfs.GBFSData map(Map<String, GBFSFeeds> source, @Context String sourceLanguage) {
         List<GBFSFeed> mappedFeeds = source.get(sourceLanguage).getFeeds().stream()
                 .filter(this::filterLegacySourceFeeds)
-                .map(this::map).collect(Collectors.toList());
+                .map(this::map)
+                .toList();
 
         return new org.entur.gbfs.v3_0_RC2.gbfs.GBFSData()
                 .withFeeds(mappedFeeds);
@@ -23,7 +23,7 @@ public class DiscoveryFileAdditionalMapper {
 
     public Map<String, org.entur.gbfs.v2_3.gbfs.GBFSFeeds> map(org.entur.gbfs.v3_0_RC2.gbfs.GBFSData source, @Context String targetLanguage) {
         org.entur.gbfs.v2_3.gbfs.GBFSFeeds mappedFeeds = new org.entur.gbfs.v2_3.gbfs.GBFSFeeds();
-        mappedFeeds.setFeeds(source.getFeeds().stream().map(this::map).collect(Collectors.toList()));
+        mappedFeeds.setFeeds(source.getFeeds().stream().map(this::map).toList());
 
         return Map.of(
                 targetLanguage,

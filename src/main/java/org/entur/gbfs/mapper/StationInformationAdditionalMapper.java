@@ -8,8 +8,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
 
 @Mapper
 public abstract class StationInformationAdditionalMapper {
@@ -69,7 +67,7 @@ public abstract class StationInformationAdditionalMapper {
                 entry -> new GBFSVehicleTypesCapacity()
                         .withVehicleTypeIds(List.of(entry.getKey()))
                         .withCount(entry.getValue().intValue())
-        ).collect(Collectors.toList());
+        ).toList();
     }
 
     List<org.entur.gbfs.v3_0_RC2.station_information.GBFSVehicleDocksCapacity> mapVehicleTypeDockCapacity(org.entur.gbfs.v2_3.station_information.GBFSVehicleTypeCapacity source) {
@@ -80,7 +78,7 @@ public abstract class StationInformationAdditionalMapper {
                 entry -> new GBFSVehicleDocksCapacity()
                         .withVehicleTypeIds(List.of(entry.getKey()))
                         .withCount(entry.getValue().intValue())
-        ).collect(Collectors.toList());
+        ).toList();
     }
 
     @InheritInverseConfiguration
