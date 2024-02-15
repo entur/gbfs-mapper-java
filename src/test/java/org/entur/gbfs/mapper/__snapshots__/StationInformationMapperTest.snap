@@ -128,16 +128,10 @@ gbfs_v3_0_to_v2_3_station_information_file_snapshot=[
           "parking_hoop" : false,
           "contact_phone" : "+33109874321",
           "is_charging_station" : true,
-          "vehicle_type_dock_capacity" : [
-            {
-              "count" : 7,
-              "vehicle_type_id" : "abc123"
-            },
-            {
-              "count" : 0,
-              "vehicle_type_id" : "def456"
-            }
-          ]
+          "vehicle_type_capacity" : {
+            "abc123" : 7.0,
+            "def456" : 0.0
+          }
         },
         {
           "station_id" : "station12",
@@ -177,26 +171,14 @@ gbfs_v3_0_to_v2_3_station_information_file_snapshot=[
           "capacity" : 16,
           "is_valet_station" : false,
           "is_charging_station" : false,
-          "vehicle_type_area_capacity" : [
-            {
-              "count" : 7,
-              "vehicle_type_id" : "abc123"
-            },
-            {
-              "count" : 8,
-              "vehicle_type_id" : "def456"
-            }
-          ],
-          "vehicle_type_dock_capacity" : [
-            {
-              "count" : 10,
-              "vehicle_type_id" : "abc123"
-            },
-            {
-              "count" : 10,
-              "vehicle_type_id" : "def456"
-            }
-          ]
+          "vehicle_capacity" : {
+            "abc123" : 7.0,
+            "def456" : 8.0
+          },
+          "vehicle_type_capacity" : {
+            "abc123" : 10.0,
+            "def456" : 10.0
+          }
         }
       ]
     }
