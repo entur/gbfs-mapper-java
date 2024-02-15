@@ -1,8 +1,8 @@
 gbfs_v2_3_to_v3_0_system_pricing_plans_file_snapshot=[
   {
-    "last_updated" : 1640887163,
+    "last_updated" : "1970-01-19T23:48:07.163+00:00",
     "ttl" : 0,
-    "version" : "3.0-RC",
+    "version" : "3.0-RC2",
     "data" : {
       "plans" : [
         {
@@ -26,18 +26,18 @@ gbfs_v2_3_to_v3_0_system_pricing_plans_file_snapshot=[
             {
               "start" : 10,
               "rate" : 1.0,
-              "interval" : 1,
+              "interval" : 1.0,
               "end" : 25
             },
             {
               "start" : 25,
               "rate" : 0.5,
-              "interval" : 1
+              "interval" : 1.0
             },
             {
               "start" : 25,
               "rate" : 3.0,
-              "interval" : 5
+              "interval" : 5.0
             }
           ]
         },
@@ -62,14 +62,14 @@ gbfs_v2_3_to_v3_0_system_pricing_plans_file_snapshot=[
             {
               "start" : 0,
               "rate" : 0.25,
-              "interval" : 1
+              "interval" : 1.0
             }
           ],
           "per_min_pricing" : [
             {
               "start" : 0,
               "rate" : 0.5,
-              "interval" : 1
+              "interval" : 1.0
             }
           ]
         }

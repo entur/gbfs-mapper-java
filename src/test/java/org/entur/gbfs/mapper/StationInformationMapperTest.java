@@ -22,7 +22,7 @@ class StationInformationMapperTest {
     void testMapStationInformationFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/station_information.json");
         org.entur.gbfs.v2_3.station_information.GBFSStationInformation testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.station_information.GBFSStationInformation.class);
-        org.entur.gbfs.v3_0_RC.station_information.GBFSStationInformation mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
+        org.entur.gbfs.v3_0_RC2.station_information.GBFSStationInformation mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
@@ -34,7 +34,7 @@ class StationInformationMapperTest {
     @Test
     void testMapStationInformationFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/station_information.json");
-        org.entur.gbfs.v3_0_RC.station_information.GBFSStationInformation testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC.station_information.GBFSStationInformation.class);
+        org.entur.gbfs.v3_0_RC2.station_information.GBFSStationInformation testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.station_information.GBFSStationInformation.class);
         org.entur.gbfs.v2_3.station_information.GBFSStationInformation mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect

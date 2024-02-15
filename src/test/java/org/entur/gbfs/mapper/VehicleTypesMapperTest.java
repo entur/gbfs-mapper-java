@@ -22,7 +22,7 @@ class VehicleTypesMapperTest {
     void testMapVehicleTypesFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/vehicle_types.json");
         org.entur.gbfs.v2_3.vehicle_types.GBFSVehicleTypes testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.vehicle_types.GBFSVehicleTypes.class);
-        org.entur.gbfs.v3_0_RC.vehicle_types.GBFSVehicleTypes mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
+        org.entur.gbfs.v3_0_RC2.vehicle_types.GBFSVehicleTypes mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
@@ -34,7 +34,7 @@ class VehicleTypesMapperTest {
     @Test
     void testMapVehicleTypesFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/vehicle_types.json");
-        org.entur.gbfs.v3_0_RC.vehicle_types.GBFSVehicleTypes testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC.vehicle_types.GBFSVehicleTypes.class);
+        org.entur.gbfs.v3_0_RC2.vehicle_types.GBFSVehicleTypes testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.vehicle_types.GBFSVehicleTypes.class);
         org.entur.gbfs.v2_3.vehicle_types.GBFSVehicleTypes mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
