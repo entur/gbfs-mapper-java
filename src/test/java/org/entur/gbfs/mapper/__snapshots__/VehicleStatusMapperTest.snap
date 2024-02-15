@@ -1,8 +1,8 @@
 gbfs_v2_3_to_v3_0_vehicle_status_file_snapshot=[
   {
-    "last_updated" : 1640887163,
+    "last_updated" : "1970-01-19T23:48:07.163+00:00",
     "ttl" : 0,
-    "version" : "3.0-RC",
+    "version" : "3.0-RC2",
     "data" : {
       "vehicles" : [
         {
@@ -16,14 +16,14 @@ gbfs_v2_3_to_v3_0_vehicle_status_file_snapshot=[
             "ios" : "https://www.example.com/app?vehicle_id=973a5c94-c288-4a2b-afa6-de8aeb6ae2e5&platform=ios"
           },
           "vehicle_type_id" : "abc123",
-          "last_reported" : 1.609866109E9
+          "last_reported" : "1970-01-19T15:11:06.109+00:00"
         },
         {
           "vehicle_id" : "987fd100-b822-4347-86a4-b3eef8ca8b53",
           "is_reserved" : false,
           "is_disabled" : false,
           "vehicle_type_id" : "def456",
-          "last_reported" : 1.609866204E9,
+          "last_reported" : "1970-01-19T15:11:06.204+00:00",
           "current_range_meters" : 6543.0,
           "station_id" : "86",
           "pricing_plan_id" : "plan3"
@@ -35,7 +35,7 @@ gbfs_v2_3_to_v3_0_vehicle_status_file_snapshot=[
           "is_reserved" : false,
           "is_disabled" : false,
           "vehicle_type_id" : "abc123",
-          "last_reported" : 1.609866109E9,
+          "last_reported" : "1970-01-19T15:11:06.109+00:00",
           "current_range_meters" : 400000.0,
           "home_station_id" : "station1",
           "vehicle_equipment" : [
@@ -49,7 +49,7 @@ gbfs_v2_3_to_v3_0_vehicle_status_file_snapshot=[
           "is_reserved" : false,
           "is_disabled" : false,
           "vehicle_type_id" : "def456",
-          "last_reported" : 1.609866204E9,
+          "last_reported" : "1970-01-19T15:11:06.204+00:00",
           "current_range_meters" : 6543.0,
           "current_fuel_percent" : 0.7,
           "station_id" : "86",

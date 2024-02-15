@@ -22,7 +22,7 @@ class SystemPricingPlansMapperTest {
     void testMapStationStatusFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/system_pricing_plans.json");
         org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans.class);
-        org.entur.gbfs.v3_0_RC.system_pricing_plans.GBFSSystemPricingPlans mapped = GBFSMapper.INSTANCE.map(testSubject,"en");
+        org.entur.gbfs.v3_0_RC2.system_pricing_plans.GBFSSystemPricingPlans mapped = GBFSMapper.INSTANCE.map(testSubject,"en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
@@ -34,7 +34,7 @@ class SystemPricingPlansMapperTest {
     @Test
     void testMapStationStatusFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/system_pricing_plans.json");
-        org.entur.gbfs.v3_0_RC.system_pricing_plans.GBFSSystemPricingPlans testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC.system_pricing_plans.GBFSSystemPricingPlans.class);
+        org.entur.gbfs.v3_0_RC2.system_pricing_plans.GBFSSystemPricingPlans testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.system_pricing_plans.GBFSSystemPricingPlans.class);
         org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect

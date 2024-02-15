@@ -22,7 +22,7 @@ class GeofencingZonesMapperTest {
     void testMapStationInformationFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/geofencing_zones.json");
         org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones.class);
-        org.entur.gbfs.v3_0_RC.geofencing_zones.GBFSGeofencingZones mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
+        org.entur.gbfs.v3_0_RC2.geofencing_zones.GBFSGeofencingZones mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
@@ -34,7 +34,7 @@ class GeofencingZonesMapperTest {
     @Test
     void testMapStationInformationFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/geofencing_zones.json");
-        org.entur.gbfs.v3_0_RC.geofencing_zones.GBFSGeofencingZones testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC.geofencing_zones.GBFSGeofencingZones.class);
+        org.entur.gbfs.v3_0_RC2.geofencing_zones.GBFSGeofencingZones testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.geofencing_zones.GBFSGeofencingZones.class);
         org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
