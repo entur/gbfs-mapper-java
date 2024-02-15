@@ -1,13 +1,13 @@
 gbfs_v2_3_to_v3_0_gbfs_versions_file_snapshot=[
   {
-    "last_updated" : "1970-01-17T14:20:54.678+00:00",
-    "ttl" : 0,
-    "version" : "3.0-RC2",
-    "data" : {
-      "versions" : [
+    "last_updated": "1970-01-17T14:20:54.678+00:00",
+    "ttl": 0,
+    "version": "3.0-RC2",
+    "data": {
+      "versions": [
         {
-          "version" : "2.2",
-          "url" : "https://test.com/gbfs.json"
+          "version": "2.2",
+          "url": "https://test.com/gbfs.json"
         }
       ]
     }
@@ -17,14 +17,14 @@ gbfs_v2_3_to_v3_0_gbfs_versions_file_snapshot=[
 
 gbfs_v3_0_to_v2_3_gbfs_versions_file_snapshot=[
   {
-    "last_updated" : 1434054678,
-    "ttl" : 0,
-    "version" : "2.3",
-    "data" : {
-      "versions" : [
+    "last_updated": 1434054678,
+    "ttl": 0,
+    "version": "2.3",
+    "data": {
+      "versions": [
         {
-          "version" : "2.2",
-          "url" : "https://test.com/gbfs.json"
+          "version": "2.2",
+          "url": "https://test.com/gbfs.json"
         }
       ]
     }
