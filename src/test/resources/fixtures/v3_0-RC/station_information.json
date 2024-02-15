@@ -19,13 +19,13 @@
         "parking_hoop": false,
         "contact_phone": "+33109874321",
         "is_charging_station": true,
-        "vehicle_type_dock_capacity": [
+        "vehicle_types_capacity": [
           {
-            "vehicle_type_id": "abc123",
+            "vehicle_type_ids": ["abc123"],
             "count": 7
           },
           {
-            "vehicle_type_id": "def456",
+            "vehicle_type_ids": ["def456"],
             "count": 0
           }
         ]
@@ -73,23 +73,23 @@
           ]
         },
         "capacity": 16,
-        "vehicle_type_area_capacity": [
+        "vehicle_types_capacity": [
           {
-            "vehicle_type_id": "abc123",
+            "vehicle_type_ids": ["abc123"],
             "count": 7
           },
           {
-            "vehicle_type_id": "def456",
+            "vehicle_type_ids": ["def456"],
             "count": 8
           }
         ],
-        "vehicle_type_dock_capacity": [
+        "vehicle_docks_capacity": [
           {
-            "vehicle_type_id": "abc123",
+            "vehicle_type_ids": ["abc123"],
             "count": 10
           },
           {
-            "vehicle_type_id": "def456",
+            "vehicle_type_ids": ["def456"],
             "count": 10
           }
         ]
