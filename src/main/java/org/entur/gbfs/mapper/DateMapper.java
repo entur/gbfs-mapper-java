@@ -12,7 +12,7 @@ public class DateMapper {
     }
 
     Date mapDoubleToDate(Double value) {
-        return Date.from(Instant.ofEpochMilli(value.longValue()));
+        return Date.from(Instant.ofEpochSecond(value.longValue()));
     }
 
     Integer mapDateToInteger(Date lastReported) {
@@ -20,6 +20,6 @@ public class DateMapper {
     }
 
     Date mapIntegerToDate(Integer value) {
-        return Date.from(Instant.ofEpochMilli(value.longValue()));
+        return Date.from(Instant.ofEpochSecond(value.longValue()));
     }
 }
