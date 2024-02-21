@@ -33,7 +33,7 @@ class VehicleStatusMapperTest {
     @SnapshotName("gbfs_v3_0_to_v2_3_vehicle_status_file_snapshot")
     @Test
     void testMapVehicleStatusFileInverse() throws IOException {
-        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/vehicle_status.json");
+        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC2/vehicle_status.json");
         org.entur.gbfs.v3_0_RC2.vehicle_status.GBFSVehicleStatus testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.vehicle_status.GBFSVehicleStatus.class);
         org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
