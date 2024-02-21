@@ -33,7 +33,7 @@ class SystemPricingPlansMapperTest {
     @SnapshotName("gbfs_v3_0_to_v2_3_system_pricing_plans_file_snapshot")
     @Test
     void testMapStationStatusFileInverse() throws IOException {
-        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC/system_pricing_plans.json");
+        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC2/system_pricing_plans.json");
         org.entur.gbfs.v3_0_RC2.system_pricing_plans.GBFSSystemPricingPlans testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.system_pricing_plans.GBFSSystemPricingPlans.class);
         org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
