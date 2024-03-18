@@ -76,7 +76,7 @@
         <!-- Unit test frameworks versions -->
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
         <java-snapshot-testing.version>4.0.7</java-snapshot-testing.version>
-        <jackson.version>2.16.2</jackson.version>
+        <jackson.version>2.17.0</jackson.version>
         <slf4j-simple.version>2.0.12</slf4j-simple.version>
     </properties>
 
@@ -333,7 +333,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.1.0</version>
+                        <version>3.2.0</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
