@@ -11,6 +11,12 @@ var target = GBFSMapper.INSTANCE.map(source, "en");
 where `source` and `target` are instances of GBFS files from
 [gbfs-java-model](https://github.com/entur/gbfs-java-model).
 
+There is also a dedicated mapper for the feed name enums:
+
+```java
+assertEquals(GBFSFeed.Name.VEHICLE_STATUS, GBFSFeedNameMapper.INSTANCE.map(GBFSFeedName.FreeBikeStatus));
+```
+
 ### Notes on language
 Due to how internationalization works prior to version 3, this mapper only
 supports mapping a single language. The language code must be given as the second argument
