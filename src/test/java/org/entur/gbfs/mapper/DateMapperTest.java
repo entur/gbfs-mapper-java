@@ -4,16 +4,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
+import java.time.OffsetDateTime;
 import java.util.Date;
 
-/**
- * This test class is slightly contrived, since it duplicates the actual implementation of one side of the
- * conversion (epoch -> date), but the other direction is relevant, as is the null-handling.
- */
 class DateMapperTest {
 
-    long TEST_EPOCH_SECONDS = 1708520282;
-    Date TEST_DATE = Date.from(Instant.ofEpochSecond(TEST_EPOCH_SECONDS));
+    long TEST_EPOCH_SECONDS = 1712608531;
+    Date TEST_DATE = Date.from(OffsetDateTime.parse("2024-04-08T20:35:31Z").toInstant());
+
 
     @Test
     void testMapDateToDoubleMapsCorrectly() {
