@@ -23,7 +23,7 @@ class DiscoveryFileMapperTest {
     void testMapDiscoveryFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/gbfs.json");
         org.entur.gbfs.v2_3.gbfs.GBFS testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.gbfs.GBFS.class);
-        org.entur.gbfs.v3_0_RC2.gbfs.GBFSGbfs mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
+        org.entur.gbfs.v3_0.gbfs.GBFSGbfs mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
@@ -34,8 +34,8 @@ class DiscoveryFileMapperTest {
     @SnapshotName("gbfs_v3_0_to_v2_3_discovery_file_snapshot")
     @Test
     void testMapDiscoveryFileInverse() throws IOException {
-        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC2/gbfs.json");
-        org.entur.gbfs.v3_0_RC2.gbfs.GBFSGbfs testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.gbfs.GBFSGbfs.class);
+        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0/gbfs.json");
+        org.entur.gbfs.v3_0.gbfs.GBFSGbfs testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0.gbfs.GBFSGbfs.class);
         org.entur.gbfs.v2_3.gbfs.GBFS mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect

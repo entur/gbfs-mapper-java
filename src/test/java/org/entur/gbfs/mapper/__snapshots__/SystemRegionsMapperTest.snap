@@ -2,7 +2,7 @@ gbfs_v2_3_to_v3_0_system_regions_file_snapshot=[
   {
     "last_updated": "2021-12-30T17:59:23.000+00:00",
     "ttl": 86400,
-    "version": "3.0-RC2",
+    "version": "3.0",
     "data": {
       "regions": [
         {

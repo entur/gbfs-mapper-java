@@ -2,7 +2,7 @@ gbfs_v2_3_to_v3_0_gbfs_versions_file_snapshot=[
   {
     "last_updated": "2015-06-11T20:31:18.000+00:00",
     "ttl": 0,
-    "version": "3.0-RC2",
+    "version": "3.0",
     "data": {
       "versions": [
         {
