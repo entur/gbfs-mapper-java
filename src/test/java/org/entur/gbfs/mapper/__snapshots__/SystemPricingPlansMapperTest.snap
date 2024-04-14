@@ -110,8 +110,7 @@ gbfs_v3_0_to_v2_3_system_pricing_plans_file_snapshot=[
               "rate": 3.0,
               "interval": 5
             }
-          ],
-          "reservation_price_per_min": 0.15
+          ]
         },
         {
           "plan_id": "cargo_plan_1",
