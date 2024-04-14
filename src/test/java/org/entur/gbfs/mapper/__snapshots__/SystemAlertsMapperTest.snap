@@ -2,7 +2,7 @@ gbfs_v2_3_to_v3_0_system_alerts_file_snapshot=[
   {
     "last_updated": "2020-11-04T19:49:53.000+00:00",
     "ttl": 60,
-    "version": "3.0-RC2",
+    "version": "3.0",
     "data": {
       "alerts": [
         {

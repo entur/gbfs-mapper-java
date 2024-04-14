@@ -1,7 +1,7 @@
 package org.entur.gbfs.mapper;
 
 import org.entur.gbfs.v2_3.gbfs.GBFSFeedName;
-import org.entur.gbfs.v3_0_RC2.gbfs.GBFSFeed;
+import org.entur.gbfs.v3_0.gbfs.GBFSFeed;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

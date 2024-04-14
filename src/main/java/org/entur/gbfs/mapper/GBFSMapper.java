@@ -22,76 +22,76 @@ import org.mapstruct.factory.Mappers;
 public interface GBFSMapper {
     GBFSMapper INSTANCE = Mappers.getMapper( GBFSMapper.class );
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
+    @Mapping(target = "version", constant = "3.0")
     @Mapping(target = "data", source = "feedsData")
-    org.entur.gbfs.v3_0_RC2.gbfs.GBFSGbfs map(org.entur.gbfs.v2_3.gbfs.GBFS source, @Context String language);
+    org.entur.gbfs.v3_0.gbfs.GBFSGbfs map(org.entur.gbfs.v2_3.gbfs.GBFS source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
     @Mapping(target = "data", ignore = true)
     @InheritInverseConfiguration
-    org.entur.gbfs.v2_3.gbfs.GBFS map(org.entur.gbfs.v3_0_RC2.gbfs.GBFSGbfs source, @Context String language);
+    org.entur.gbfs.v2_3.gbfs.GBFS map(org.entur.gbfs.v3_0.gbfs.GBFSGbfs source, @Context String language);
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions source, @Context String language);
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v3_0_RC2.gbfs_versions.GBFSGbfsVersions source, @Context String language);
+    org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions map(org.entur.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions source, @Context String language);
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
+    @Mapping(target = "version", constant = "3.0")
     @Mapping(target = "data", qualifiedBy = SystemInformationDataMapper.class)
-    org.entur.gbfs.v3_0_RC2.system_information.GBFSSystemInformation map(org.entur.gbfs.v2_3.system_information.GBFSSystemInformation source, @Context String language);
+    org.entur.gbfs.v3_0.system_information.GBFSSystemInformation map(org.entur.gbfs.v2_3.system_information.GBFSSystemInformation source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
     @Mapping(target = "data", qualifiedBy = SystemInformationDataMapper.class)
-    org.entur.gbfs.v2_3.system_information.GBFSSystemInformation map(org.entur.gbfs.v3_0_RC2.system_information.GBFSSystemInformation source, @Context String language);
+    org.entur.gbfs.v2_3.system_information.GBFSSystemInformation map(org.entur.gbfs.v3_0.system_information.GBFSSystemInformation source, @Context String language);
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.vehicle_types.GBFSVehicleTypes map(org.entur.gbfs.v2_3.vehicle_types.GBFSVehicleTypes source, @Context String language);
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.vehicle_types.GBFSVehicleTypes map(org.entur.gbfs.v2_3.vehicle_types.GBFSVehicleTypes source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.vehicle_types.GBFSVehicleTypes map(org.entur.gbfs.v3_0_RC2.vehicle_types.GBFSVehicleTypes source, @Context String language);
+    org.entur.gbfs.v2_3.vehicle_types.GBFSVehicleTypes map(org.entur.gbfs.v3_0.vehicle_types.GBFSVehicleTypes source, @Context String language);
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
+    @Mapping(target = "version", constant = "3.0")
     @Mapping(target = "data", qualifiedBy = VehicleStatusDataMapper.class)
-    org.entur.gbfs.v3_0_RC2.vehicle_status.GBFSVehicleStatus map(org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus source, @Context String language);
+    org.entur.gbfs.v3_0.vehicle_status.GBFSVehicleStatus map(org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
     @Mapping(target = "data", qualifiedBy = VehicleStatusDataMapper.class)
-    org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus map(org.entur.gbfs.v3_0_RC2.vehicle_status.GBFSVehicleStatus source, @Context String language);
+    org.entur.gbfs.v2_3.free_bike_status.GBFSFreeBikeStatus map(org.entur.gbfs.v3_0.vehicle_status.GBFSVehicleStatus source, @Context String language);
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.station_information.GBFSStationInformation map(org.entur.gbfs.v2_3.station_information.GBFSStationInformation source, @Context String language);
-
-    @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.station_information.GBFSStationInformation map(org.entur.gbfs.v3_0_RC2.station_information.GBFSStationInformation source, @Context String language);
-
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.station_status.GBFSStationStatus map(org.entur.gbfs.v2_3.station_status.GBFSStationStatus source, @Context String language);
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.station_information.GBFSStationInformation map(org.entur.gbfs.v2_3.station_information.GBFSStationInformation source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.station_status.GBFSStationStatus map(org.entur.gbfs.v3_0_RC2.station_status.GBFSStationStatus source, @Context String language);
+    org.entur.gbfs.v2_3.station_information.GBFSStationInformation map(org.entur.gbfs.v3_0.station_information.GBFSStationInformation source, @Context String language);
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.system_pricing_plans.GBFSSystemPricingPlans map(org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans source, @Context String language);
-
-    @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans map(org.entur.gbfs.v3_0_RC2.system_pricing_plans.GBFSSystemPricingPlans source, @Context String language);
-
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.geofencing_zones.GBFSGeofencingZones map(org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones source, @Context String language);
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.station_status.GBFSStationStatus map(org.entur.gbfs.v2_3.station_status.GBFSStationStatus source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones map(org.entur.gbfs.v3_0_RC2.geofencing_zones.GBFSGeofencingZones source, @Context String language);
+    org.entur.gbfs.v2_3.station_status.GBFSStationStatus map(org.entur.gbfs.v3_0.station_status.GBFSStationStatus source, @Context String language);
 
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.system_regions.GBFSSystemRegions map(org.entur.gbfs.v2_3.system_regions.GBFSSystemRegions source, @Context String language);
-
-    @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.system_regions.GBFSSystemRegions map(org.entur.gbfs.v3_0_RC2.system_regions.GBFSSystemRegions source, @Context String language);
-
-    @Mapping(target = "version", constant = "_3_0_RC_2")
-    org.entur.gbfs.v3_0_RC2.system_alerts.GBFSSystemAlerts map(org.entur.gbfs.v2_3.system_alerts.GBFSSystemAlerts source, @Context String language);
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.system_pricing_plans.GBFSSystemPricingPlans map(org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans source, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
-    org.entur.gbfs.v2_3.system_alerts.GBFSSystemAlerts map(org.entur.gbfs.v3_0_RC2.system_alerts.GBFSSystemAlerts source, @Context String language);
+    org.entur.gbfs.v2_3.system_pricing_plans.GBFSSystemPricingPlans map(org.entur.gbfs.v3_0.system_pricing_plans.GBFSSystemPricingPlans source, @Context String language);
+
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.geofencing_zones.GBFSGeofencingZones map(org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones source, @Context String language);
+
+    @Mapping(target = "version", constant = "2.3")
+    org.entur.gbfs.v2_3.geofencing_zones.GBFSGeofencingZones map(org.entur.gbfs.v3_0.geofencing_zones.GBFSGeofencingZones source, @Context String language);
+
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.system_regions.GBFSSystemRegions map(org.entur.gbfs.v2_3.system_regions.GBFSSystemRegions source, @Context String language);
+
+    @Mapping(target = "version", constant = "2.3")
+    org.entur.gbfs.v2_3.system_regions.GBFSSystemRegions map(org.entur.gbfs.v3_0.system_regions.GBFSSystemRegions source, @Context String language);
+
+    @Mapping(target = "version", constant = "3.0")
+    org.entur.gbfs.v3_0.system_alerts.GBFSSystemAlerts map(org.entur.gbfs.v2_3.system_alerts.GBFSSystemAlerts source, @Context String language);
+
+    @Mapping(target = "version", constant = "2.3")
+    org.entur.gbfs.v2_3.system_alerts.GBFSSystemAlerts map(org.entur.gbfs.v3_0.system_alerts.GBFSSystemAlerts source, @Context String language);
 }

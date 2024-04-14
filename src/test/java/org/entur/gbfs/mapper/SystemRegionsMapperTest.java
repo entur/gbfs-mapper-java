@@ -22,7 +22,7 @@ class SystemRegionsMapperTest {
     void testMapStationInformationFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/system_regions.json");
         org.entur.gbfs.v2_3.system_regions.GBFSSystemRegions testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.system_regions.GBFSSystemRegions.class);
-        org.entur.gbfs.v3_0_RC2.system_regions.GBFSSystemRegions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
+        org.entur.gbfs.v3_0.system_regions.GBFSSystemRegions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
@@ -33,8 +33,8 @@ class SystemRegionsMapperTest {
     @SnapshotName("gbfs_v3_0_to_v2_3_system_regions_file_snapshot")
     @Test
     void testMapStationInformationFileInverse() throws IOException {
-        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0-RC2/system_regions.json");
-        org.entur.gbfs.v3_0_RC2.system_regions.GBFSSystemRegions testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0_RC2.system_regions.GBFSSystemRegions.class);
+        URL resource = getClass().getClassLoader().getResource("fixtures/v3_0/system_regions.json");
+        org.entur.gbfs.v3_0.system_regions.GBFSSystemRegions testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0.system_regions.GBFSSystemRegions.class);
         org.entur.gbfs.v2_3.system_regions.GBFSSystemRegions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect

@@ -21,9 +21,9 @@ public interface GBFSFeedNameMapper {
     @ValueMapping(target = "SystemRegions", source = "SYSTEM_REGIONS")
     @ValueMapping(target = "SystemPricingPlans", source = "SYSTEM_PRICING_PLANS")
     @ValueMapping(target = "GeofencingZones", source = "GEOFENCING_ZONES")
-    org.entur.gbfs.v2_3.gbfs.GBFSFeedName map(org.entur.gbfs.v3_0_RC2.gbfs.GBFSFeed.Name source);
+    org.entur.gbfs.v2_3.gbfs.GBFSFeedName map(org.entur.gbfs.v3_0.gbfs.GBFSFeed.Name source);
 
     @InheritInverseConfiguration
     @ValueMapping(source = MappingConstants.ANY_REMAINING, target = MappingConstants.NULL)
-    org.entur.gbfs.v3_0_RC2.gbfs.GBFSFeed.Name map(org.entur.gbfs.v2_3.gbfs.GBFSFeedName source);
+    org.entur.gbfs.v3_0.gbfs.GBFSFeed.Name map(org.entur.gbfs.v2_3.gbfs.GBFSFeedName source);
 }

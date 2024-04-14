@@ -10,8 +10,8 @@ import org.mapstruct.Mapping;
 public abstract class StationStatusAdditionalMapper {
     @Mapping(target = "numVehiclesAvailable", source = "numBikesAvailable")
     @Mapping(target = "numVehiclesDisabled", source = "numBikesDisabled")
-    abstract org.entur.gbfs.v3_0_RC2.station_status.GBFSStation mapStation(org.entur.gbfs.v2_3.station_status.GBFSStation source);
+    abstract org.entur.gbfs.v3_0.station_status.GBFSStation mapStation(org.entur.gbfs.v2_3.station_status.GBFSStation source);
 
     @InheritInverseConfiguration
-    abstract org.entur.gbfs.v2_3.station_status.GBFSStation mapStationInverse(org.entur.gbfs.v3_0_RC2.station_status.GBFSStation source);
+    abstract org.entur.gbfs.v2_3.station_status.GBFSStation mapStationInverse(org.entur.gbfs.v3_0.station_status.GBFSStation source);
 }
