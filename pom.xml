@@ -51,7 +51,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <gbfs-java-model.version>3.1.1</gbfs-java-model.version>
+        <gbfs-java-model.version>3.1.2</gbfs-java-model.version>
         <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
 
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
@@ -59,7 +59,7 @@
         <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-        <maven-jar-plugin.version>3.4.0</maven-jar-plugin.version>
+        <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
         <maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <maven-site-plugin.version>3.12.1</maven-site-plugin.version>
@@ -333,7 +333,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.3</version>
+                        <version>3.2.4</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
