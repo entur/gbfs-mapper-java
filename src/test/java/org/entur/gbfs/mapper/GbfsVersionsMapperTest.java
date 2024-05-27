@@ -22,8 +22,8 @@ class GbfsVersionsMapperTest {
     @Test
     void testMapGbfsVersionsFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/gbfs_versions.json");
-        org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions.class);
-        org.entur.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
+        org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions.class);
+        org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
@@ -35,8 +35,8 @@ class GbfsVersionsMapperTest {
     @Test
     void testMapGbfsVersionsFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0/gbfs_versions.json");
-        org.entur.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.entur.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions.class);
-        org.entur.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
+        org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions.class);
+        org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
                     .serializer("json")
