@@ -51,7 +51,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <gbfs-java-model.version>1.0.7</gbfs-java-model.version>
-        <org.mapstruct.version>1.6.0</org.mapstruct.version>
+        <org.mapstruct.version>1.6.1</org.mapstruct.version>
 
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
@@ -332,7 +332,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.5</version>
+                        <version>3.2.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
