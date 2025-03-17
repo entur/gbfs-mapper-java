@@ -73,7 +73,7 @@
         <argLine />
 
         <!-- Unit test frameworks versions -->
-        <junit-jupiter.version>5.12.0</junit-jupiter.version>
+        <junit-jupiter.version>5.12.1</junit-jupiter.version>
         <java-snapshot-testing.version>4.0.8</java-snapshot-testing.version>
         <jackson.version>2.18.3</jackson.version>
         <slf4j-simple.version>2.0.17</slf4j-simple.version>
