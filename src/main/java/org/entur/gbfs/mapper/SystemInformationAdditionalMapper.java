@@ -3,7 +3,10 @@ package org.entur.gbfs.mapper;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mobilitydata.gbfs.v2_3.system_hours.Day;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Mapper(imports = {List.class})
@@ -16,6 +19,49 @@ public abstract class SystemInformationAdditionalMapper {
     @SystemInformationDataMapper
     @Mapping(target = "language", expression = "java(language)")
     abstract org.mobilitydata.gbfs.v2_3.system_information.GBFSData mapDataInverse(org.mobilitydata.gbfs.v3_0.system_information.GBFSData source, @Context String language);
+
+    private String convertDateTo24HourFormat(String date) {
+        LocalTime localTime = LocalTime.parse(date); // Leser "HH:mm:ss"
+        return localTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+    }
+
+    private String convertDayToTwoLetters(Day day) {
+        switch (day) {
+            case MON -> { return "Mo"; }
+            case TUE -> { return "Tu"; }
+            case WED -> { return "We"; }
+            case THU -> { return "Th"; }
+            case FRI -> { return "Fr"; }
+            case SAT -> { return "Sa"; }
+            case SUN -> { return "Su"; }
+        }
+        return null;
+    }
+
+    private String convertDaysToString(List<org.mobilitydata.gbfs.v2_3.system_hours.Day> days) {
+        if (days == null || days.isEmpty()) {
+            return null;
+        }
+        if (days.size() == 1) {
+            return convertDayToTwoLetters(days.get(0));
+        } else {
+            return convertDayToTwoLetters(days.get(0)) + "-" + convertDayToTwoLetters(days.get(days.size() - 1));
+        }
+    }
+
+    @Mapping(target = "openingHours")
+    String mapOpeningHours(@Context org.mobilitydata.gbfs.v2_3.system_hours.GBFSData systemHours) {
+        if (!systemHours.getRentalHours().isEmpty()) {
+            return systemHours.getRentalHours().stream()
+                    .map(rentalHour -> String.format("%s %s-%s",
+                            convertDaysToString(rentalHour.getDays()),
+                            convertDateTo24HourFormat(rentalHour.getStartTime()),
+                            convertDateTo24HourFormat(rentalHour.getEndTime())))
+                    .reduce((first, second) -> first + "; " + second)
+                    .orElse(null);
+        }
+        return null;
+    }
 
     List<org.mobilitydata.gbfs.v3_0.system_information.GBFSName> mapName(String value, @Context String language) {
         if (value == null) {
