@@ -4,10 +4,15 @@ import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mobilitydata.gbfs.v2_3.system_hours.Day;
+import org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 @Mapper(imports = {List.class})
 public abstract class SystemInformationAdditionalMapper {
@@ -37,27 +42,32 @@ public abstract class SystemInformationAdditionalMapper {
         return null;
     }
 
-    private String convertDaysToString(List<org.mobilitydata.gbfs.v2_3.system_hours.Day> days) {
-        if (days == null || days.isEmpty()) {
-            return null;
-        }
-        if (days.size() == 1) {
-            return convertDayToTwoLetters(days.get(0));
-        } else {
-            return convertDayToTwoLetters(days.get(0)) + "-" + convertDayToTwoLetters(days.get(days.size() - 1));
-        }
+    private String convertListOfRentalHourToOneDate(List<org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour> rentalHours) {
+        return rentalHours.stream()
+                .sorted(Comparator.comparing(org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour::getStartTime))
+                .map(rh -> String.format("%s-%s",
+                        convertDateTo24HourFormat(rh.getStartTime()),
+                        convertDateTo24HourFormat(rh.getEndTime())))
+                .collect(Collectors.joining(","));
     }
 
     @Mapping(target = "openingHours")
-    String mapOpeningHours(@Context org.mobilitydata.gbfs.v2_3.system_hours.GBFSData systemHours) {
-        if (!systemHours.getRentalHours().isEmpty()) {
-            return systemHours.getRentalHours().stream()
-                    .map(rentalHour -> String.format("%s %s-%s",
-                            convertDaysToString(rentalHour.getDays()),
-                            convertDateTo24HourFormat(rentalHour.getStartTime()),
-                            convertDateTo24HourFormat(rentalHour.getEndTime())))
-                    .reduce((first, second) -> first + "; " + second)
-                    .orElse(null);
+    String mapOpeningHours(@Context org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours) {
+        if (!systemHours.getData().getRentalHours().isEmpty()) {
+            Map<Day, List<org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour>> groupedByDay =
+                    systemHours.getData().getRentalHours().stream()
+                            .flatMap(rh -> rh.getDays().stream().map(day -> Map.entry(day, rh)))
+                            .collect(Collectors.groupingBy(Map.Entry::getKey, Collectors.mapping(Map.Entry::getValue, Collectors.toList())));
+
+            Map<Day, List<org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour>> sortedMap = new TreeMap<>(Comparator.comparingInt(Day::ordinal));
+            sortedMap.putAll(groupedByDay);
+
+            return sortedMap.entrySet().stream().map(entry -> {
+                String day = convertDayToTwoLetters(entry.getKey());
+                List<org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour> rentalHours = entry.getValue();
+                String dates = convertListOfRentalHourToOneDate(rentalHours);
+                return String.format("%s %s", day, dates);
+            }).collect(Collectors.joining("; "));
         }
         return null;
     }
