@@ -21,8 +21,7 @@ public abstract class SystemInformationAdditionalMapper {
     abstract org.mobilitydata.gbfs.v2_3.system_information.GBFSData mapDataInverse(org.mobilitydata.gbfs.v3_0.system_information.GBFSData source, @Context String language);
 
     private String convertDateTo24HourFormat(String date) {
-        LocalTime localTime = LocalTime.parse(date); // Leser "HH:mm:ss"
-        return localTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+        return LocalTime.parse(date).format(DateTimeFormatter.ofPattern("HH:mm"));
     }
 
     private String convertDayToTwoLetters(Day day) {
