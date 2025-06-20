@@ -3,8 +3,8 @@ package org.entur.gbfs.mapper;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 import org.mobilitydata.gbfs.v2_3.system_hours.Day;
-import org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -20,6 +20,12 @@ public abstract class SystemInformationAdditionalMapper {
     @SystemInformationDataMapper
     @Mapping(target = "languages", expression = "java(List.of(language))")
     abstract org.mobilitydata.gbfs.v3_0.system_information.GBFSData mapData(org.mobilitydata.gbfs.v2_3.system_information.GBFSData source, @Context String language);
+
+    @SystemInformationDataMapper
+    @Named("mapDataWithSystemHours")
+    @Mapping(target = "languages", expression = "java(List.of(language))")
+    @Mapping(target = "openingHours", expression = "java(mapOpeningHours(systemHours))")
+    abstract org.mobilitydata.gbfs.v3_0.system_information.GBFSData mapDataWithSystemHours(org.mobilitydata.gbfs.v2_3.system_information.GBFSData source, @Context org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours, @Context String language);
 
     @SystemInformationDataMapper
     @Mapping(target = "language", expression = "java(language)")
@@ -51,9 +57,8 @@ public abstract class SystemInformationAdditionalMapper {
                 .collect(Collectors.joining(","));
     }
 
-    @Mapping(target = "openingHours")
     String mapOpeningHours(@Context org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours) {
-        if (!systemHours.getData().getRentalHours().isEmpty()) {
+        if (systemHours != null && systemHours.getData() != null && !systemHours.getData().getRentalHours().isEmpty()) {
             Map<Day, List<org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour>> groupedByDay =
                     systemHours.getData().getRentalHours().stream()
                             .flatMap(rh -> rh.getDays().stream().map(day -> Map.entry(day, rh)))

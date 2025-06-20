@@ -3,11 +3,13 @@ package org.entur.gbfs.mapper;
 import org.junit.jupiter.api.Test;
 import org.mobilitydata.gbfs.v2_3.system_hours.Day;
 import org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour;
+import org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours;
 import org.mobilitydata.gbfs.v3_0.system_information.GBFSData;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class SystemInformationAdditionalMapperUnitTest {
 
@@ -18,9 +20,21 @@ class SystemInformationAdditionalMapperUnitTest {
         }
 
         @Override
+        GBFSData mapDataWithSystemHours(org.mobilitydata.gbfs.v2_3.system_information.GBFSData source, GBFSSystemHours systemHours, String language) {
+            return null;
+        }
+
+        @Override
         org.mobilitydata.gbfs.v2_3.system_information.GBFSData mapDataInverse(GBFSData source, String language) {
             return null;
         }
+    }
+
+    @Test
+    void mapOpeningHours_test_null_system_hours() {
+        TestSubject subject = new TestSubject();
+        String result = subject.mapOpeningHours(null);
+        assertNull(result);
     }
 
     @Test

@@ -43,7 +43,7 @@ public interface GBFSMapper {
 
 
     @Mapping(target = "version", constant = "3.0")
-    @Mapping(target = "data", qualifiedBy = SystemInformationDataMapper.class)
+    @Mapping(target = "data", qualifiedBy = SystemInformationDataMapper.class, qualifiedByName = "mapDataWithSystemHours")
     org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation map(org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation source, @Context org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours gbfsSystemHours, @Context String language);
 
     @Mapping(target = "version", constant = "2.3")
