@@ -43,4 +43,21 @@ class SystemInformationMapperTest {
                     .toMatchSnapshot(mapped);
         });
     }
+
+    @SnapshotName("gbfs_v2_3_to_v3_0_system_information_with_system_hours_file_snapshot")
+    @Test
+    void testMapSystemInformationWithSystemHoursFile() throws IOException {
+        URL systemInfoResource = getClass().getClassLoader().getResource("fixtures/v2_3/system_information.json");
+        URL systemHoursResource = getClass().getClassLoader().getResource("fixtures/v2_3/system_hours.json");
+        
+        org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation systemInfo = objectMapper.readValue(systemInfoResource, org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation.class);
+        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours = objectMapper.readValue(systemHoursResource, org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours.class);
+        
+        org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation mapped = GBFSMapper.INSTANCE.map(systemInfo, systemHours, "en");
+        assertDoesNotThrow(() -> {
+            expect
+                    .serializer("json")
+                    .toMatchSnapshot(mapped);
+        });
+    }
 }
