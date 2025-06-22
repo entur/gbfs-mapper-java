@@ -65,6 +65,6 @@ jobs:
     secrets: inherit
     with:
       push_to_repo: true
-      snapshot: true
+      snapshot: false
 
 
