@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 @Mapper(imports = {List.class})
 public abstract class SystemInformationAdditionalMapper {
+    public static final String DEFAULT_OPENING_HOURS = "Mo-Su,PH 00:00-24:00";
 
     @SystemInformationDataMapper
     @Mapping(target = "languages", expression = "java(List.of(language))")
@@ -74,7 +75,7 @@ public abstract class SystemInformationAdditionalMapper {
                 return String.format("%s %s", day, dates);
             }).collect(Collectors.joining("; "));
         }
-        return null;
+        return DEFAULT_OPENING_HOURS;
     }
 
     List<org.mobilitydata.gbfs.v3_0.system_information.GBFSName> mapName(String value, @Context String language) {
