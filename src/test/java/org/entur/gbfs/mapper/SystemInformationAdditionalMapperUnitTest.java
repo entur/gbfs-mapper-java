@@ -34,7 +34,7 @@ class SystemInformationAdditionalMapperUnitTest {
     void mapOpeningHours_test_null_system_hours_returns_default() {
         TestSubject subject = new TestSubject();
         String result = subject.mapOpeningHours(null);
-        assertEquals("Mo-Su,PH 00:00-24:00", result);
+        assertEquals("24/7", result);
     }
 
     @Test
