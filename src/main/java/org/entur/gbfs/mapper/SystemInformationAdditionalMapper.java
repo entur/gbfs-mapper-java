@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Mapper(imports = {List.class})
 public abstract class SystemInformationAdditionalMapper {
-    public static final String DEFAULT_OPENING_HOURS = "Mo-Su,PH 00:00-24:00";
+    public static final String DEFAULT_OPENING_HOURS = "24/7";
 
     @SystemInformationDataMapper
     @Mapping(target = "languages", expression = "java(List.of(language))")
