@@ -31,10 +31,10 @@ class SystemInformationAdditionalMapperUnitTest {
     }
 
     @Test
-    void mapOpeningHours_test_null_system_hours() {
+    void mapOpeningHours_test_null_system_hours_returns_default() {
         TestSubject subject = new TestSubject();
         String result = subject.mapOpeningHours(null);
-        assertNull(result);
+        assertEquals("24/7", result);
     }
 
     @Test
