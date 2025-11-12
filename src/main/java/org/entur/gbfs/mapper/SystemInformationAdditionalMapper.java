@@ -6,8 +6,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mobilitydata.gbfs.v2_3.system_hours.Day;
 
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +30,39 @@ public abstract class SystemInformationAdditionalMapper {
     @Mapping(target = "language", expression = "java(language)")
     abstract org.mobilitydata.gbfs.v2_3.system_information.GBFSData mapDataInverse(org.mobilitydata.gbfs.v3_0.system_information.GBFSData source, @Context String language);
 
-    private String convertDateTo24HourFormat(String date) {
-        return LocalTime.parse(date).format(DateTimeFormatter.ofPattern("HH:mm"));
+    /**
+     * Converts start and end times to OpenStreetMap time range format (HH:mm-HH:mm).
+     * Automatically detects and converts midnight-crossing times to extended notation.
+     * Supports extended hours (0-47) per GBFS specification.
+     *
+     * Examples:
+     * - "08:00:00", "17:00:00" → "08:00-17:00" (same-day)
+     * - "23:00:00", "25:00:00" → "23:00-25:00" (extended format input)
+     * - "20:00:00", "01:00:00" → "20:00-25:00" (detected midnight crossing)
+     *
+     * @param startTime Start time in HH:mm:ss format, hours can be 0-47
+     * @param endTime End time in HH:mm:ss format, hours can be 0-47
+     * @return Time range in format "HH:mm-HH:mm"
+     */
+    private String convertToTimeRange(String startTime, String endTime) {
+        // Parse start time
+        String[] startParts = startTime.split(":");
+        int startHour = Integer.parseInt(startParts[0]);
+        int startMinute = Integer.parseInt(startParts[1]);
+
+        // Parse end time
+        String[] endParts = endTime.split(":");
+        int endHour = Integer.parseInt(endParts[0]);
+        int endMinute = Integer.parseInt(endParts[1]);
+
+        // If end time is earlier than start time (and both are < 24),
+        // assume it crosses midnight and add 24 hours to end time
+        if (endHour < startHour && endHour < 24 && startHour < 24) {
+            endHour += 24;
+        }
+
+        return String.format("%02d:%02d-%02d:%02d",
+            startHour, startMinute, endHour, endMinute);
     }
 
     private String convertDayToTwoLetters(Day day) {
@@ -52,9 +81,7 @@ public abstract class SystemInformationAdditionalMapper {
     private String convertListOfRentalHourToOneDate(List<org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour> rentalHours) {
         return rentalHours.stream()
                 .sorted(Comparator.comparing(org.mobilitydata.gbfs.v2_3.system_hours.GBFSRentalHour::getStartTime))
-                .map(rh -> String.format("%s-%s",
-                        convertDateTo24HourFormat(rh.getStartTime()),
-                        convertDateTo24HourFormat(rh.getEndTime())))
+                .map(rh -> convertToTimeRange(rh.getStartTime(), rh.getEndTime()))
                 .collect(Collectors.joining(","));
     }
 
