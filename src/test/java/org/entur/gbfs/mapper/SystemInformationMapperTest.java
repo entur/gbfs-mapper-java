@@ -22,7 +22,8 @@ class SystemInformationMapperTest {
     @Test
     void testMapSystemInformationFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/system_information.json");
-        org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation testSubject = objectMapper.readValue(resource, org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation.class);
+        org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation testSubject =
+            objectMapper.readValue(resource.openStream(), org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation.class);
         org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
@@ -35,7 +36,8 @@ class SystemInformationMapperTest {
     @Test
     void testMapSystemInformationFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0/system_information.json");
-        org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation testSubject = objectMapper.readValue(resource, org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation.class);
+        org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation testSubject =
+            objectMapper.readValue(resource.openStream(), org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation.class);
         org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
@@ -49,10 +51,31 @@ class SystemInformationMapperTest {
     void testMapSystemInformationWithSystemHoursFile() throws IOException {
         URL systemInfoResource = getClass().getClassLoader().getResource("fixtures/v2_3/system_information.json");
         URL systemHoursResource = getClass().getClassLoader().getResource("fixtures/v2_3/system_hours.json");
-        
-        org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation systemInfo = objectMapper.readValue(systemInfoResource, org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation.class);
-        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours = objectMapper.readValue(systemHoursResource, org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours.class);
-        
+
+        org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation systemInfo =
+            objectMapper.readValue(systemInfoResource.openStream(), org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation.class);
+        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours =
+            objectMapper.readValue(systemHoursResource.openStream(), org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours.class);
+
+        org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation mapped = GBFSMapper.INSTANCE.map(systemInfo, systemHours, "en");
+        assertDoesNotThrow(() -> {
+            expect
+                    .serializer("json")
+                    .toMatchSnapshot(mapped);
+        });
+    }
+
+    @SnapshotName("gbfs_v2_3_to_v3_0_system_information_with_extended_hours_snapshot")
+    @Test
+    void testMapSystemInformationWithExtendedHoursFile() throws IOException {
+        URL systemInfoResource = getClass().getClassLoader().getResource("fixtures/v2_3/system_information.json");
+        URL systemHoursResource = getClass().getClassLoader().getResource("fixtures/v2_3/system_hours_extended.json");
+
+        org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation systemInfo =
+            objectMapper.readValue(systemInfoResource.openStream(), org.mobilitydata.gbfs.v2_3.system_information.GBFSSystemInformation.class);
+        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours =
+            objectMapper.readValue(systemHoursResource.openStream(), org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours.class);
+
         org.mobilitydata.gbfs.v3_0.system_information.GBFSSystemInformation mapped = GBFSMapper.INSTANCE.map(systemInfo, systemHours, "en");
         assertDoesNotThrow(() -> {
             expect

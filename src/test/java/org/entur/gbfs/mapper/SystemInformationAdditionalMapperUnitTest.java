@@ -104,6 +104,87 @@ class SystemInformationAdditionalMapperUnitTest {
         ));
 
         String result = testSubject.mapOpeningHours(systemHours);
-        assertEquals("Mo 02:00-03:00,20:00-01:00; Th 13:00-17:00,18:00-20:00,20:00-01:00", result);
+        assertEquals("Mo 02:00-03:00,20:00-25:00; Th 13:00-17:00,18:00-20:00,20:00-25:00", result);
+    }
+
+    @Test
+    void mapOpeningHours_test_extended_time_format_input() {
+        TestSubject testSubject = new TestSubject();
+        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours = new org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours();
+
+        systemHours.setData(new org.mobilitydata.gbfs.v2_3.system_hours.GBFSData());
+
+        // Test explicit extended time notation (25:00:00 = 1 AM next day)
+        systemHours.getData().setRentalHours(List.of(
+                new GBFSRentalHour()
+                        .withStartTime("23:00:00")
+                        .withEndTime("25:00:00")
+                        .withDays(List.of(Day.MON, Day.TUE))
+        ));
+
+        String result = testSubject.mapOpeningHours(systemHours);
+        assertEquals("Mo 23:00-25:00; Tu 23:00-25:00", result);
+    }
+
+    @Test
+    void mapOpeningHours_test_extended_hours_beyond_25() {
+        TestSubject testSubject = new TestSubject();
+        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours = new org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours();
+
+        systemHours.setData(new org.mobilitydata.gbfs.v2_3.system_hours.GBFSData());
+
+        // Test hours extending to 27:00 (3 AM next day)
+        systemHours.getData().setRentalHours(List.of(
+                new GBFSRentalHour()
+                        .withStartTime("20:00:00")
+                        .withEndTime("27:00:00")
+                        .withDays(List.of(Day.FRI, Day.SAT))
+        ));
+
+        String result = testSubject.mapOpeningHours(systemHours);
+        assertEquals("Fr 20:00-27:00; Sa 20:00-27:00", result);
+    }
+
+    @Test
+    void mapOpeningHours_test_mixed_standard_and_extended_hours() {
+        TestSubject testSubject = new TestSubject();
+        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours = new org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours();
+
+        systemHours.setData(new org.mobilitydata.gbfs.v2_3.system_hours.GBFSData());
+
+        // Weekdays: standard hours (same-day)
+        // Weekend: extended hours (overnight)
+        systemHours.getData().setRentalHours(List.of(
+                new GBFSRentalHour()
+                        .withStartTime("06:00:00")
+                        .withEndTime("22:00:00")
+                        .withDays(List.of(Day.MON, Day.TUE, Day.WED, Day.THU, Day.FRI)),
+                new GBFSRentalHour()
+                        .withStartTime("18:00:00")
+                        .withEndTime("03:00:00")  // Detected as midnight crossing
+                        .withDays(List.of(Day.SAT, Day.SUN))
+        ));
+
+        String result = testSubject.mapOpeningHours(systemHours);
+        assertEquals("Su 18:00-27:00; Mo 06:00-22:00; Tu 06:00-22:00; We 06:00-22:00; Th 06:00-22:00; Fr 06:00-22:00; Sa 18:00-27:00", result);
+    }
+
+    @Test
+    void mapOpeningHours_test_24_hour_midnight_representation() {
+        TestSubject testSubject = new TestSubject();
+        org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours systemHours = new org.mobilitydata.gbfs.v2_3.system_hours.GBFSSystemHours();
+
+        systemHours.setData(new org.mobilitydata.gbfs.v2_3.system_hours.GBFSData());
+
+        // Test 24:00:00 (midnight as end time)
+        systemHours.getData().setRentalHours(List.of(
+                new GBFSRentalHour()
+                        .withStartTime("00:00:00")
+                        .withEndTime("24:00:00")
+                        .withDays(List.of(Day.MON, Day.TUE, Day.WED, Day.THU, Day.FRI, Day.SAT, Day.SUN))
+        ));
+
+        String result = testSubject.mapOpeningHours(systemHours);
+        assertEquals("Su 00:00-24:00; Mo 00:00-24:00; Tu 00:00-24:00; We 00:00-24:00; Th 00:00-24:00; Fr 00:00-24:00; Sa 00:00-24:00", result);
     }
 }
