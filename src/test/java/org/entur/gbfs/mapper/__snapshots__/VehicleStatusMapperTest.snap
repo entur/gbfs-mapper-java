@@ -83,14 +83,14 @@ gbfs_v3_0_to_v2_3_vehicle_status_file_snapshot=[
             "ios": "https://www.example.com/app?vehicle_id=973a5c94-c288-4a2b-afa6-de8aeb6ae2e5&platform=ios"
           },
           "vehicle_type_id": "abc123",
-          "last_reported": 1.609866109E9
+          "last_reported": 1609866109
         },
         {
           "bike_id": "987fd100-b822-4347-86a4-b3eef8ca8b53",
           "is_reserved": false,
           "is_disabled": false,
           "vehicle_type_id": "def456",
-          "last_reported": 1.609866204E9,
+          "last_reported": 1609866204,
           "current_range_meters": 6543.0,
           "station_id": "86",
           "pricing_plan_id": "plan3"
@@ -102,7 +102,7 @@ gbfs_v3_0_to_v2_3_vehicle_status_file_snapshot=[
           "is_reserved": false,
           "is_disabled": false,
           "vehicle_type_id": "abc123",
-          "last_reported": 1.609866109E9,
+          "last_reported": 1609866109,
           "current_range_meters": 400000.0,
           "home_station_id": "station1",
           "vehicle_equipment": [
@@ -116,7 +116,7 @@ gbfs_v3_0_to_v2_3_vehicle_status_file_snapshot=[
           "is_reserved": false,
           "is_disabled": false,
           "vehicle_type_id": "def456",
-          "last_reported": 1.609866204E9,
+          "last_reported": 1609866204,
           "current_range_meters": 6543.0,
           "current_fuel_percent": 0.7,
           "station_id": "86",
