@@ -1,0 +1,65 @@
+# publiccode.yml metadata, see https://yml.publiccode.tools/
+publiccodeYmlVersion: "0.7.0"
+
+name: gbfs-mapper-java
+url: https://github.com/entur/gbfs-mapper-java
+
+platforms:
+  - linux
+  - windows
+  - mac
+
+categories:
+  - it-development
+  - data-collection
+
+developmentStatus: stable
+softwareType: library
+
+organisation:
+  name: Entur AS
+  uri: https://entur.no
+
+usedBy:
+  - Norway (nationwide), Entur AS
+
+intendedAudience:
+  scope:
+    - transportation
+  countries:
+    - "NO"
+
+description:
+  en:
+    localisedName: gbfs-mapper-java
+    shortDescription: Java library that maps GBFS feeds between versions 2.x and 3.x, both ways.
+    longDescription: >
+      gbfs-mapper-java is a bidirectional mapper between versions 2.x and 3.x of the General Bikeshare Feed
+      Specification (GBFS). It lets an application that has settled on one version of the specification consume
+      shared mobility feeds published in the other, and it also maps the feed name enums between versions.
+      The library operates on the generated types from gbfs-java-model. Because internationalisation works
+      differently before version 3, mapping is done for one language at a time and the language code is a required
+      argument: when mapping to 3.x it fills every language field, and when mapping from 3.x it selects the
+      matching translation. Geofencing zone polygons are mapped as they are, without reinterpreting the winding
+      order semantics that changed in 3.x.
+    documentation: https://github.com/entur/gbfs-mapper-java/blob/master/README.md
+    features:
+      - Maps GBFS 2.x feeds to 3.x and back
+      - Dedicated mapper for feed name enums
+      - Built on the generated gbfs-java-model types
+      - Explicit single-language handling across the version boundary
+
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: Entur AS
+
+maintenance:
+  type: internal
+  contacts:
+    - name: Entur ROR (Open Data and Journey Planning)
+      email: kollektivdata@entur.org
+
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - en
