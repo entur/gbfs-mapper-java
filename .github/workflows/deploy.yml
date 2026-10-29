@@ -22,8 +22,8 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-java@v6.1.0
         with:
-          java-version: 17.0.13
-          distribution: liberica
+          java-version: 17
+          distribution: temurin
       - name: Cache Maven dependencies
         uses: actions/cache@v6.1.0
         with:
@@ -59,6 +59,7 @@ jobs:
     uses: entur/gha-maven-central/.github/workflows/maven-publish.yml@v1.3.1
     secrets: inherit
     with:
+      java_distribution: temurin
       push_to_repo: true
       snapshot: false
 
