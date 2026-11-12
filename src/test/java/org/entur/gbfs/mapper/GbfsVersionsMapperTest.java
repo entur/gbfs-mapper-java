@@ -3,7 +3,8 @@ package org.entur.gbfs.mapper;
 import au.com.origin.snapshots.Expect;
 import au.com.origin.snapshots.annotations.SnapshotName;
 import au.com.origin.snapshots.junit5.SnapshotExtension;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @ExtendWith({SnapshotExtension.class})
 class GbfsVersionsMapperTest {
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = JsonMapper.builder().build();
 
     private Expect expect;
 
@@ -22,7 +23,7 @@ class GbfsVersionsMapperTest {
     @Test
     void testMapGbfsVersionsFile() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v2_3/gbfs_versions.json");
-        org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions.class);
+        org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource.openStream(), org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions.class);
         org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect
@@ -35,7 +36,7 @@ class GbfsVersionsMapperTest {
     @Test
     void testMapGbfsVersionsFileInverse() throws IOException {
         URL resource = getClass().getClassLoader().getResource("fixtures/v3_0/gbfs_versions.json");
-        org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource, org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions.class);
+        org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions testSubject = objectMapper.readValue(resource.openStream(), org.mobilitydata.gbfs.v3_0.gbfs_versions.GBFSGbfsVersions.class);
         org.mobilitydata.gbfs.v2_3.gbfs_versions.GBFSGbfsVersions mapped = GBFSMapper.INSTANCE.map(testSubject, "en");
         assertDoesNotThrow(() -> {
             expect

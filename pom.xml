@@ -4,7 +4,7 @@
 
     <groupId>org.entur.gbfs</groupId>
     <artifactId>gbfs-mapper-java</artifactId>
-    <version>2.0.78-SNAPSHOT</version>
+    <version>3.0.0-SNAPSHOT</version>
     <name>gbfs-mapper-java</name>
 
     <description>Enables mapping between different versions of GBFS (bidirectional)</description>
@@ -50,7 +50,7 @@
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gbfs-java-model.version>1.0.14</gbfs-java-model.version>
+        <gbfs-java-model.version>2.0.0</gbfs-java-model.version>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
 
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
